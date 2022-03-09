@@ -2,7 +2,7 @@
 //check if user exist 
 session_start();
 
-include_once __DIR__ . '../../../model/config.php';
+include_once __DIR__ . '../../../config/config.php';
 
 if (isset($_POST["login"])) {
     if (empty($_POST["username"]) || empty($_POST["password"])) {
