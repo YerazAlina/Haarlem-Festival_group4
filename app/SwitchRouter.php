@@ -7,7 +7,7 @@ class SwitchRouter
         switch ($uri) {
             case '':
                 //http://localhost/
-                require __DIR__ . '/views/cms/login.php';
+                require __DIR__ . '';
                 break;
             case 'invoices':
                 require __DIR__ . '/views/cms/invoices.php';
