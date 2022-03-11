@@ -27,8 +27,11 @@ class SwitchRouter
             case 'logout':
                 require __DIR__ . '/views/cms/logout.php';
                 break;
-            case 'homepage':
-                require __DIR__ . '/homepage.php';
+            case 'home':
+                require __DIR__ . '/home.php';
+                break;
+            case 'historymainpage':
+                require __DIR__ . '/views/cms/history/historymainpage.php';
                 break;
             default:
                 echo '404 not found';
