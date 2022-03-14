@@ -25,6 +25,7 @@ class dynamicQuery extends base_DAO {
 
     // gets entries parsed into classes
     public function get(array $filter = []){
+
         $this->query = "";
         $this->args = [];
         $this->select($this->class::sqlFields(), $this->class::sqlLinks());
@@ -40,6 +41,7 @@ class dynamicQuery extends base_DAO {
 
     //conver get's output to an array
     public function getArray(array $filter = []) : array {
+
         $val = self::get($filter);
         if (is_null($val))
             return [];
@@ -50,8 +52,111 @@ class dynamicQuery extends base_DAO {
         return $val;
     }
 
+
+    // inserts fields using columnsNames and their values and return the primary key of the new entries
+    public function insert(array $fields) {
+
+        $columns = $this->class::sqlFields();
+        $newColumns = [];
+        $values = [];
+
+        if(!$this->insertPrimary){
+            if(($col = array_search($this->class::sqlPrimaryKey(), $columns)) !== false) {
+                unset($columns[$col]);
+            }
+        }
+
+        foreach($columns as $k){
+            if(array_key_exists($k, $fields)){
+                $newColumns[] = $k;
+            }
+        }
+
+        if(empty($newColumns)){
+            throw new aapException("No column names were given");
+        }
+
+        $columns = $newColumns;
+
+        $query = "INSERT INTO " . $this->class:sqlTableName() . " (";
+
+        foreach($columns as $col){
+            $values[] = $fields[$col];
+            $query .= $col . ",";
+        }
+
+        $query[strlen($query) - 1] = ")";
+
+        $query .= " VALUES (";
+
+        for($i = 0; $i < count($values); $i++){
+            $query .= "?,";
+        }
+
+        $query[strlen($query) - 1] = ")";
+
+        $this->prepareQuery($query);
+        $this->bindParams($values);
+        $ret = $this->executeQuery();
+        $id = $this->stmt->insert_id;
+        $this->closeQuery();
+        if ($ret){
+            return $id;
+        }
+        return false;
+    }
+
+    /**
+     * protected const sqlTableName = "";
+    protected const sqlPrimaryKey = "id";
+    protected const sqlFields = "";
+    protected const sqlLinks = [];
+    protected const sqlPrimaryIncrement = true;
+     */
+
+
+
+     // updates values in the table
+     public function update(array $fields, array $filter = []){
+
+         $columns = $this->class::sqlFields();
+
+         if(empty($filter)){
+             $filter = [$this->class::sqlPrimaryKey() => $fields[$this->class::sqlPrimaryKey()]];
+             unset($fields[$this->class::sqlPrimaryKey()]);
+         }
+         
+         $this->query = "";
+         $this->args = [];
+         $this->updateFrom($fields, $filter, $columns);
+        $this->where($filter);
+        $this->prepareQuery($this->query);
+        $this->bindParams($this->args);
+
+        return $this->execAndCloseQuery();
+     }
+
+
+    //deletes from tables
+    public function delete(array $filter){
+
+        if(empty($filter)){
+            return false;
+        }
+
+        $this->query = "";
+        $this->args = [];
+        $this->deleteFrom($this->class::sqlTableName());
+        $this->where($filter);
+        $this->prepareQuery($this->query);
+        $this->bindParams($this->args);
+
+        return $this->execAndCloseQuery();
+    }
+
     
     protected function select(array $fields, array $links){
+
         $query = "SELECT ";
 
         $query .= $this->selectForm($fields, $this->class::sqlTableName());
@@ -66,6 +171,7 @@ class dynamicQuery extends base_DAO {
 
 
     protected function from(string $tableName){
+
         $query = "FROM " . $tableName . " ";
         $this->query .= $query;
     }
@@ -73,6 +179,7 @@ class dynamicQuery extends base_DAO {
 
     // selectForm foreach sqlLink
     protected function selectFromClass($class) {
+
         $query = $this->selectForm($class::sqlFields(), $class::sqlTableName());
 
         foreach ($class::sqlLinks() as $k => $v){
@@ -84,6 +191,7 @@ class dynamicQuery extends base_DAO {
 
 
     private function selectForm(array $fields, string $tableName) {
+
         $query = "";
         foreach($fields as $field) {
             $query .= $tableName . "." . $field . " AS " . $tableName . $field . ",";
@@ -93,6 +201,7 @@ class dynamicQuery extends base_DAO {
 
 
     protected function where(array $filter){
+
         if (array_key_exists("order", $filter)){
             $order = $filter["order"];
             unset($filter["order"]);
@@ -139,6 +248,7 @@ class dynamicQuery extends base_DAO {
 
     
     protected function join(array $links){
+
         if (empty($links))
             return;
 
@@ -155,6 +265,7 @@ class dynamicQuery extends base_DAO {
 
     // join (1stClass) ON (2ndClass).columnName = (1stClass).Primary_Key
     protected function joinClass($srcClass, $dstClass, $varName){
+
         $query = "";
         if (!in_array($dstClass::sqlTableName(), $this->joinedClasses)){
             $query = "LEFT JOIN " . $dstClass::sqlTableName() . " ON " . $srcClass::sqlTableName() . "." . $varName . " = " . $dstClass::sqlTableName() . "." . $dstClass::sqlPrimaryKey() . " ";
@@ -168,6 +279,7 @@ class dynamicQuery extends base_DAO {
     
     
     protected function orderBy(array $order){
+
         $query = " ORDER BY ";
         foreach ($order as $v){
             $query .= $this->genTableVar($v) . ", ";
@@ -178,10 +290,12 @@ class dynamicQuery extends base_DAO {
 
     
     protected function limit(int $limit){
+
         $this->query .= "LIMIT " . $limit . " ";
     }
 
     protected function updateFrom(array $fields, array $filter, array $keys){
+
         $newKeys = [];
         foreach ($fields as $field => $fieldval){
             if (in_array($field, $keys) && !in_array($field, $filter)){
@@ -201,6 +315,7 @@ class dynamicQuery extends base_DAO {
     }
 
     protected function deleteFrom(string $tableName) {
+
         $query = "DELETE FROM " . $tableName . " ";
         $this->query .= $query;
     }
@@ -208,6 +323,7 @@ class dynamicQuery extends base_DAO {
 
     // generates the string for a field of a class
     private function genTableVar($var, $includeTable = null){
+
         if (is_null($includeTable)){
             $includeTable = (strpos($var, ".") === false);
         }
