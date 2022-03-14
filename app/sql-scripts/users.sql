@@ -1,17 +1,26 @@
-DROP TABLE IF EXISTS `users`;
+CREATE TABLE roles (
+roleId INT PRIMARY KEY AUTO_INCREMENT,
+type VARCHAR(255)
+);
 
-CREATE TABLE `users`
-(
-    `id`              INT NOT NULL AUTO_INCREMENT,
-    `username`        varchar(50)      NOT NULL UNIQUE,
-    `password`        varchar(255)     NOT NULL,
-    `created_at`      DATETIME DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB
-  AUTO_INCREMENT = 5
-  DEFAULT CHARSET = utf8mb4;
+INSERT INTO roles (type) VALUES ('User');
+INSERT INTO roles (type) VALUES ('Administrator');
+INSERT INTO roles (type) VALUES ('SuperAdministrator');
+INSERT INTO roles (type) VALUES ('Client');
+INSERT INTO roles (type) VALUES ('Volunteer');
 
-LOCK TABLES `users` WRITE;
+SELECT * FROM roles;
 
-INSERT INTO `users`(`id`, `username`, `password`, `created_at`) VALUES ('1','student','Hello123', CAST(N'2021-06-18 10:34:09.000' AS DateTime))
-INSERT INTO `users`(`id`, `username`, `password`, `created_at`) VALUES ('2','evavnzee@outlook.com','Hello1234', CAST(N'2021-06-18 10:34:09.000' AS DateTime))
+CREATE TABLE users(
+    id INT NOT NULL AUTO_INCREMENT,
+    email varchar(50)      NOT NULL UNIQUE,
+    firstname varchar(50)      NOT NULL,
+    lastname varchar(50)      NOT NULL,
+    password varchar(255)     NOT NULL,
+    roleId INT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (roleId) REFERENCES roles(roleId)
+);
+
+INSERT INTO users (id, email, firstname, lastname, password, roleId, created_at) VALUES (('1','student@gmail.com', 'Student', 'Zomer', 'Hello123', '1', CAST(N'2022-01-18 10:34:09.000' AS DateTime)))
