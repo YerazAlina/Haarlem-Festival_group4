@@ -31,7 +31,7 @@ class SwitchRouter
                 require __DIR__ . '/views/home.php';
                 break;
             case 'food':
-                require __DIR__ . '/views/food.php';
+                require __DIR__ . '/views/food/food.php';
                 break;
             default:
                 echo '404 not found';
