@@ -1,0 +1,91 @@
+
+.background-image{
+    background-image: url("../img/festivalinfo/background.png");
+
+}
+.btn-danger{
+    background-color: #A42323;
+    margin-left: 20pt;
+}
+
+
+.FI-title{
+    color: #A42323;
+    margin-left: 40pt;
+    font-size: 40pt;
+    margin-bottom: 40pt;
+}
+
+.container{
+    padding: 20px;
+    background-color: white;
+    width: 500px;
+}
+
+.heading{
+    margin-left: 120px;
+}
+
+
+.col{
+    margin-bottom: 50px;
+    margin-left: 23px;
+}
+
+.col-sm-6{
+    padding: 20px;
+    width: 33%;
+
+}
+
+.col-md-6{
+    margin-bottom: 30px;
+}
+
+
+.festival-info{
+    padding: 40px;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+.circle1, .circle2, .circle3{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #EFE0E0;
+    line-height: 120px;
+    text-align: center;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.4);
+
+
+}
+
+.circle1{
+    top: 200px;
+    left: 80px;
+}
+
+.circle2{
+
+    top: 900px;
+    left: 80px;
+}
+
+.circle3{
+    top: 200px;
+    left: 900px;
+}
+
+
+p.line-1, p.line-2{
+    color: #A42323;
+    font-size: 18pt;
+    font-weight: bold;
+
+}
+
+p.line-2{
+    margin: -105px;
+}
