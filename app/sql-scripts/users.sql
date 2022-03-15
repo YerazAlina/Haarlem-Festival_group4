@@ -23,4 +23,4 @@ CREATE TABLE users(
     FOREIGN KEY (roleId) REFERENCES roles(roleId)
 );
 
-INSERT INTO users (id, email, firstname, lastname, password, roleId, created_at) VALUES (('1','student@gmail.com', 'Student', 'Zomer', 'Hello123', '1', CAST(N'2022-01-18 10:34:09.000' AS DateTime)))
+INSERT INTO `users`(`id`, `email`, `firstname`, `lastname`, `password`, `roleId`, `created_at`) VALUES ('1','student@gmail.com','Eva','Stet','Hello123','1',CAST(N'2022-01-18 10:34:09.000' AS DateTime))

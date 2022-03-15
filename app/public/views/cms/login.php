@@ -32,7 +32,7 @@
         <form action="login" method="post">
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" name="username" class="form-control">
+                <input type="text" name="email" class="form-control">
             </div>
             <div class="form-group">
                 <label>Password</label>
