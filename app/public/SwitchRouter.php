@@ -36,6 +36,15 @@ class SwitchRouter
             case 'historyDateOverview':
                 require __DIR__ . '/views/cms/history/historyDateOverview.php'; 
                 break;
+            case 'historyPriceTime':
+                require __DIR__ . '/views/cms/history/historyPriceTime.php'; 
+                break;
+            case 'historyLanguageQuantity':
+                require __DIR__ . '/views/cms/history/historyLanguageQuantity.php'; 
+                break;
+             case 'historydraft':
+                require __DIR__ . '/views/cms/history/historydraft.php'; 
+                break;
             default:
                 echo '404 not found';
                 http_response_code(404);

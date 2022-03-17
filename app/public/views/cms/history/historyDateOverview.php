@@ -71,14 +71,15 @@
 <p id="heading"> What day would you like to go on tour? </p> 
 <p id="explanation"> *Tour route and price are identical for each day and each time slot. </p>
 
-
+<form method="POST">
 <div class="btn-group">
-<button  type="button" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyLanguageQuantity.php'"> <p id="dates">Thursday 28th of July  >></p></button>
-<button type="button" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyLanguageQuantity.php'"> <p id="dates">Friday 29th of July   >></p></button>
-<button  type="button" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyLanguageQuantity.php'"><p id="dates"> Saturday 30th of July >></p></button>
-<button  type="button" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyLanguageQuantity.php'"> <p id="dates">Sunday 31st of July   >></p></button>
+<button  type="button" name="thursday" value="28/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"> <p id="dates">Thursday 28th of July  >></p></button>
+<button type="button" name="friday" value="Thursday 29/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"> <p id="dates">Friday 29th of July   >></p></button>
+<button  type="button" name="saturday" value="30/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"><p id="dates"> Saturday 30th of July >></p></button>
+<button  type="button" name="sunday" value="31/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"> <p id="dates">Sunday 31st of July   >></p></button>
 </div>
-
+</form>
+<br>
 
 
     <h3 class="redline">__________________________________________________________________________________________________________________________________________________________________</h3>

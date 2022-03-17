@@ -13,6 +13,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../../css/historystyle.css?<?php echo time(); ?>">
 
+
 	</head>
 
 <header>
@@ -65,156 +66,57 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                 style="color: black; text-decoration: none;">ENG<span class="caret"></span></a>
         </div>
-    </nav>
-
-<header>
-	<section class="row justify-content-center align-self-center text-center">
-        <section class="col-12 h-100" style=" margin-top: 0px;">
-            <a href="#" class="col-12" style="">
-                <img class="eventimg" src="../img/history/history-banner.png" >
-                
-
-            </a>
-        </section>
-</header>
-
-<br><br>
+ </nav>
 
 <div class="container">
 <div class="row">
-		
+    <div class="pinkbackgroundleft">
+     <div class="col-md-6">
+     <p id="price"> P R I C E </p>
+       <P id="singlefamily"> Single ticket: €17,50</P>
+       <P id="singlefamily"> Family ticket: €60,00</P>
+       <p id="explanation2">Price of a single ticket or a family ticket is the same for every tour!</p>
+       <p id="explanation3">*Note that a family ticket consists of max 4 people</p>
+     </div>
 
- <div class="card-box">
- <div class="col-md-8">
- <h2 class="venues"> V E N U E S </h2>
+    </div>
 
- <ol>
-	
-  <li>St.Bavo</li>
-  <li>Grote Markt</li>
-  <li>De Hallen</li>
-  <li>Proveniershof</li>
-  <li>Jopenkerk</li>
-  <li>Waalsekerk Haarlem</li>
-  <li>Mollen de Adriaan</li>
-  <li>Amsterdamse Poort</li>
-  <li>Hoof van Bekenes</li>
- </ol>
-
-  </div>	
-  </div>
-
- <div class="col-md-6">
-     <div class="container">
-     <div class="follow-us">
-         <h3 class="followustext">FOLLOW US ON YOUR FAVORITE APPS!</h3>
-         <img src="../img/history/igicon.png" id="igicon" class="column-picture" alt="...">
-         <img src="../img/history/fbicon.png" id="fbicon" class="column-picture" alt="...">
+    
+<div class="pinkbackgroundright">
+     <div class="row">
+      <div class="col-md-6">
+      <p id="timelanguage"> TIME     LANGUAGE  </p>
       </div>
-      <br>
- <button class="btn-book-tour2" type="button" onclick="location.href='historyDateOverview'">BOOK A TOUR >></button>
- <br>
- <img src="../img/history/history-map.png" id="historymap" class="column-picture" alt="...">
+      <div class="row">
+        <div class="col-md-8">
+        <p>10:00      English tour: SOLD OUT     Dutch tour: available    </p> 
+        <button class="btn-buy" type="button" onclick="location.href='historyLanguageQuantity'">BUY >></button>
+        </div>
+      </div>
 
- </div>
- </div>
+      <div class="row">
+        <div class="col-md-10">
+        <p>13:00      English tour: available     Dutch tour: available  Chinese tour: available   </p> 
+        <button class="btn-buy" type="button" onclick="location.href='historyLanguageQuantity'">BUY >></button>
+        </div>
+      </div>
 
+     <div class="row">
+        <div class="col-md-10">
+        <p>16:00      English tour: SOLD OUT     Dutch tour: SOLD OUT  </p> 
+        <button class="btn-buy" type="button" onclick="location.href='historyLanguageQuantity'">BUY >></button>
+        </div>
+      </div>
 
+    </div>
+</div>
 
- </div>
- </div>
-
-
+  
 <h3 class="redline">__________________________________________________________________________________________________________________________________________________________________</h3>
 
-<div class="row">
-
-  <div class="col-md-6">
-	<p class="historyparagraph">This church is an important landmark for the city of Haarlem and has dominated the city skyline for centuries. It is located on the central market square Grote Markt - which is indeed the starting point of this tour.</p>
-	</div>
-
-<div class="col-md-6">
-<img src="../img/history/haarlem-stbavo.png" class="column-picture" alt="...">
-<h5 id="picturefooter">1/2. Church of St.Bavo/Grote Markt</h5>
-
-</div>
-
-<div class="col-md-6">
-<img src="../img/history/dehallen .png" class="column-picture" alt="...">
-<h5 id="picturefooter">3. De Hallen</h5>
-
-</div>
-<div class="col-md-6">
-	<p class="historyparagraph">De Hallen museum is located on the Grote Markt where modern and contemporary art is on display in alternating presentations. The emphasis is on contemporary photograph and video presentations, with the focus on Man and society.</p>
-	</div>
-
-<div class="col-md-6">
-<p class="historyparagraph">The complex of buildings surrounds a  garden taking up a city block that is on the Haarlem hofje route. Inhabitants were men who actually paid rent to live there, as opposed to hofje inhabitants who had no income to spend on rent. Most hofjes were for women, because they were able to run their own modest household. Men were generally less able to take care of themselves and were thus dependent on the "preuves" in the form of meals and services that were paid for from rents.</p>
-</div>
-
-<div class="col-md-6">
-<img src="../img/history/proveinershof.png" class="column-picture" alt="...">
-<h5 id="picturefooter">4.Proveinershof</h5>
-
-</div>
-
-<div class="col-md-6">
-<img src="../img/history/jopenkerk.png" class="column-picture" alt="...">
-<h5 id="picturefooter">5.Jopenkerk</h5>
-
-</div>
-
-<div class="col-md-6">
-	<p class="historyparagraph">Jopen brews both old and new classics here according to age-old recipes.
-Get acquainted with the various Jopen beers in various flavors in the grand café. Order a tasting of three beers and discover your taste preferences. Behind every freshly tapped beer there is a special story. </p>
-	</div>
-
-	<div class="col-md-6">
-<p class="historyparagraph">The Waalse kerk was built in the middle of the 14th century and has an upper gallery built for the Beguines(Christian religious orders) who lived there on the courtyard that still bears their name. The sacristy dates from the 16th century, with wooden arches and a mantel from the 17th century. The organ was built in 1808 by Friederichs, and in the attic there is a mechanical clock that drives the hands on the clock of the organ. In the church tower there is a bell from 1512 with a diameter of 56.5 centimeters(~22 inches).</p>
-</div>
-
-<div class="col-md-6">
-<img src="../img/history/waalsekerk.png" class="column-picture" alt="...">
-<h5 id="picturefooter">6.Waalsekerk</h5>
-</div>
-
-<div class="col-md-6">
-<img src="../img/history/demollen.png" class="column-picture" alt="...">
-<h5 id="picturefooter">7. Mollen De Adriaan</h5>
-</div>
-
-<div class="col-md-6">
-	<p class="historyparagraph">De Adriaan is a windmill in the Netherlands that burnt down in 1932[1] and was rebuilt in 2002. The original windmill dates from 1779 and the mill has been a distinctive part of the skyline of Haarlem for centuries. Windmill was initialy built to produce cement, paint, and tanbark. Afterwards in 1802 it was converted into a tobacco mill.</p>
-	</div>
-
-	<div class="col-md-6">
-<p class="historyparagraph">The Amsterdamse Poort is an old city gate of Haarlem, Netherlands. It is located at the end of the old route from Amsterdam to Haarlem and the only gate left from the original twelve city gates. It was created in year 1355.</p>
-</div>
-
-<div class="col-md-6">
-<img src="../img/history/amsterdaamsepoort.png" class="column-picture" alt="...">
-<h5 id="picturefooter">8.Amsterdaamse Poort</h5>
-</div>
-
-<div class="col-md-6">
-<img src="../img/history/hofvanbakenes.png" class="column-picture" alt="...">
-<h5 id="picturefooter">9. Hof van Bekenes</h5>
-
-</div>
-
-<div class="col-md-6">
-	<p class="historyparagraph">The hofje was founded from the legacy of Dirck van Bakenes in 1395. This makes it the oldest hofje in the Netherlands. The Hofje van Bakenes or Bakenesserkamer is a hofje in Haarlem, located between the Bakenessergracht and the Wijde Appelaarsteeg. In the Middle Ages "kamer" or "room" meant house. Usually the houses within a hofje consisted of just one room.</p>
-	</div>
-</div>
 
 
-
-<button class="btn-book" type="button" onclick="location.href='historyDateOverview'">BOOK A TOUR         >></button>
-
-<h3 class="redline">__________________________________________________________________________________________________________________________________________________________________</h3>
-
-<br><br>
-
+    <br>
 <div class="row recommended-events">
     <h3 class="rec-title"> Complete the day </h3>
     <div class="col mt-md-4">
