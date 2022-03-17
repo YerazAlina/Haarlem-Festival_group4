@@ -1,12 +1,12 @@
 <?php
 
-require_once("../Model/location.php");
+require_once("../Model/restaurantTypeLink.php");
 require_once("dynamicQuery.php");
 
-class location_DAO extends dynamicQuery {
+class restaurantType_DAO extends dynamicQuery {
     
     public function __construct(){
-        parent::__construct(location::class);
+        parent::__construct(restaurantTypeLink::class);
     }
 
     public function get(array $filter = []){

@@ -60,7 +60,7 @@
         </section>
 
         <section class="col-3 h-100" style=" margin-top: 50px;">
-            <a href="food.php" class="col-12" style="">
+            <a href="food" class="col-12" style="">
                 <img class="eventimg" src="../img/loginhaarlem.png" width="300" height="600">
                 <h2 class="bottom-right" style="color:white; transform: translate(-0%, -100%);">Food</h2>
 

@@ -106,15 +106,6 @@ class dynamicQuery extends base_DAO {
         return false;
     }
 
-    /**
-     * protected const sqlTableName = "";
-    protected const sqlPrimaryKey = "id";
-    protected const sqlFields = "";
-    protected const sqlLinks = [];
-    protected const sqlPrimaryIncrement = true;
-     */
-
-
 
      // updates values in the table
      public function update(array $fields, array $filter = []){
