@@ -34,12 +34,12 @@ class historyactivity extends model
     {
         return $this->date; 
     }
-    public function setDate(DateTime $time)
+    public function setTime(DateTime $time)
     {
         $this->time = $time; 
     }
 
-    public function getDate()
+    public function getTime()
     {
         return $this->time; 
     }
