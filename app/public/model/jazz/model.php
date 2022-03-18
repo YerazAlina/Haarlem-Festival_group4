@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class sqlModel
+abstract class model
 {
     protected const sqlTableName = "";
     protected const sqlPrimaryKey = "id";
@@ -34,7 +34,7 @@ abstract class sqlModel
     public abstract static function sqlParse(array $sqlRes) : self;
 
     public static function sqlParseFunc() {
-        return function (array $sqlRes) : sqlModel {
+        return function (array $sqlRes) : model {
             return static::sqlParse($sqlRes);
         };
     }

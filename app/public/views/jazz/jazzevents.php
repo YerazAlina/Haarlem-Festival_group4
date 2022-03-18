@@ -86,8 +86,14 @@
 </section>
 
 
+
 <section class="events">
     <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <?php
+            foreach ($events as $event) {
+        ?>
+
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-top">
@@ -101,7 +107,7 @@
                 </div>
 
                 <div class="card-body-event">
-                    <h5 class="card-title">Artist name</h5>
+                    <h5 class="card-title"><?php echo $post['artist'] ?></h5>
                     <p class="card-text">Artist info</p>
                     <p class="card-subtitle">Time of event </p>
                     <p class="card-subtitle"> Location | Price </p>
@@ -114,6 +120,7 @@
             </div>
         </div>
 
+    
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-top">

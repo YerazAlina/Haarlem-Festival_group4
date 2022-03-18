@@ -13,6 +13,7 @@ class artist extends model {
 
     protected const sqlTableName = "artist";
     protected const sqlFields = ["id", "name", "description"];
+    
 
     public function constructor(int $id, string $name, string $description){
         
