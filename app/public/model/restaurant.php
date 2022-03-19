@@ -10,26 +10,34 @@ class restaurant extends model {
     private location $location;
     private string $name;
     private string $description;
+    private int $stars;
     private int $seats;
     private int $phoneNumber;
     private float $price;
+    private string $parking;
     private string $website;
     private string $menu;
     private string $contact;
     
     protected const sqlTableName = "restaurant";
-    protected const sqlFields = ["id", "locationId", "name", "description", "seats", "phonenumber", "price", "website", "menu", "contact"];
+    protected const sqlFields = ["id", "locationId", "name", "description", "stars", "seats", "phonenumber", "price", "parking", "website", "menu", "contact"];
     protected const sqlLinks = ["locationId" => location::class];
 
-    public function constructor(int $id, location $location, string $name, string $description, int $seats, int $phoneNumber, float $price, string $website, string $menu, string $contact){
+    public function __construct(){
+
+    }
+
+    public function constructor(int $id, location $location, string $name, string $description, int $stars, int $seats, int $phoneNumber, float $price, string $website, string $menu, string $contact){
         
         $this->id = $id;
         $this->location = $location;
         $this->name = $name;
         $this->description = $description;
+        $this->stars = $stars;
         $this->seats = $seats;
         $this->phoneNumber = $phoneNumber;
         $this->price = $price;
+        $this->parking = $parking;
         $this->website = $website;
         $this->menu = $menu;
         $this->contact = $contact;
@@ -44,7 +52,9 @@ class restaurant extends model {
             "description" => $this->description,
             "seats" => $this->seats,
             "phonenumber" => $this->phoneNumber,
+            "stars" => $this->stars,
             "price" => $this->price,
+            "parking" => $this->parking,
             "website" => $this->website,
             "menu" => $this->menu,
             "contact" => $this->contact
@@ -58,9 +68,11 @@ class restaurant extends model {
             location::sqlParse($sqlRes),
             $sqlRes[self::sqlTableName . "name"],
             $sqlRes[self::sqlTableName . "description"],
+            $sqlRes[self::sqlTableName . "stars"],
             $sqlRes[self::sqlTableName . "seats"],
             $sqlRes[self::sqlTableName . "phonenumber"],
             $sqlRes[self::sqlTableName . "price"],
+            $sqlRes[self::sqlTableName . "parking"]
             $sqlRes[self::sqlTableName . "website"],
             $sqlRes[self::sqlTableName . "menu"],
             $sqlRes[self::sqlTableName . "contact"]
@@ -107,6 +119,16 @@ class restaurant extends model {
         $this->location = $location;
     }
 
+    public function getStars()
+    {
+        return $this->stars;
+    }
+
+    public function setStars($stars)
+    {
+        $this->stars = $stars;
+    }
+
     public function getSeats()
     {
         return $this->seats;
@@ -125,6 +147,16 @@ class restaurant extends model {
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    public function getParking()
+    {
+        return $this->parking;
+    }
+
+    public function setParking($parking)
+    {
+        $this->parking = $parking;
     }
 
     public function getWebsite()

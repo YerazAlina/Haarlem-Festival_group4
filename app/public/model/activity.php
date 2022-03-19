@@ -4,7 +4,7 @@ require_once ("location.php");
 require_once ("time.php");
 require_once ("date.php");
 
-class avtivity extends model {
+class activity extends model {
     private int $id;
     private string $type;
     private DateTime $date;
@@ -18,6 +18,10 @@ class avtivity extends model {
     protected const sqlTableName = "activity";
     protected const sqlFields = ["id", "type", "date", "startTime", "endTime", "locationId", "price", "ticketsLeft"];
     protected const sqlLinks = ["locationId" => location::class];
+
+    public function __construct(){
+
+    }
 
     public function constructor(int $id, string $type, ?DateTime $date, DateTime $startTime, ?DateTime $endTime, ?location $location, float $price, ?int $ticketsLeft) {
 

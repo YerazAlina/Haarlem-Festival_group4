@@ -8,6 +8,10 @@ class restaurantType extends model{
     protected const sqlTableName = "restaurantType";
     protected const sqlFields = ["id", "name"];
 
+    public function __construct(){
+
+    }
+
     public function constructor(int $id, string $name){
         $this->id = $id;
         $this->name = $name;
