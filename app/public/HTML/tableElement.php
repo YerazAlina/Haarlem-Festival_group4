@@ -1,10 +1,10 @@
 <?php
 
-require_once ("dynamicHTML")
+require_once ("dynamicHTML.php");
 
 class tableElement extends dynamicHTML {
 
-    private array $contents
+    private array $contents;
     
     public function __construct() {
         $this->css = [

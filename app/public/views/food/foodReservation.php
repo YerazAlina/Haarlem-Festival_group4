@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,8 @@
 
 <body>
 <?php
-require_once("navbar.php");
+// require_once("../navbar.php");
+require __DIR__ . '/../navbar.php';
 ?>
 
 <section class="content">
@@ -33,5 +35,6 @@ require_once("navbar.php");
     </section>
 </section>
 
+<?php require __DIR__ . '/../cms/footer.php'; ?>
 </body>
 </html>

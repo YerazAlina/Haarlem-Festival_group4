@@ -1,6 +1,9 @@
 <?php
 
-require_once("../Model/restaurantTypeLink.php");
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+
+require_once ($root . "/Model/restaurantTypeLink.php");
+//require __DIR__ . '/../Model/restaurantTypeLink.php';
 require_once("dynamicQuery.php");
 
 class restaurantType_DAO extends dynamicQuery {

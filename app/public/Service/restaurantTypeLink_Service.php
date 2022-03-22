@@ -16,12 +16,12 @@ class restaurantTypeLink_Service extends base
 
     public function __construct()
     {
-        $this->db = new restaurantTypeLink_DAO();
+        $this->database = new restaurantTypeLink_DAO();
     }
 
     public function getTypeLink()
     {
-        $this->types = $this->db->get();
+        $this->types = $this->database->get();
     }
 
     private function getTypesFromId(int $id)
@@ -77,20 +77,6 @@ class restaurantTypeLink_Service extends base
         return $strs;
     }
 
-    public function updateFieldIds(int $restaurantId, array $typeIds)
-    {
-        $this->db->delete([
-            "restaurantId" => $restaurantId
-        ]);
-
-        foreach ($typeIds as $id) {
-            $this->db->insert([
-                "restaurantId" => $restaurantId,
-                "restaurantTypeId" => (int)$id
-            ]);
-        }
-    }
-
 
     public function getBySearch($typeID, $search, $stars3, $stars4)
     {
@@ -114,7 +100,7 @@ class restaurantTypeLink_Service extends base
             $filter = array_merge($filter, array("restaurantType.id" => $typeID));
         }
 
-        $restaurantTypeLinks = $this->db->get($filter);
+        $restaurantTypeLinks = $this->database->get($filter);
 
         return $this->getRestaurants($restaurantTypeLinks);
     }
@@ -123,9 +109,9 @@ class restaurantTypeLink_Service extends base
     public function getByType($typeID)
     {
         if ($typeID > 0) {
-            $restaurantTypeLinks = $this->db->getArray(["restaurantType.id" => $typeID]);
+            $restaurantTypeLinks = $this->database->getArray(["restaurantType.id" => $typeID]);
         } else {
-            $restaurantTypeLinks = $this->db->getArray();
+            $restaurantTypeLinks = $this->database->getArray();
         }
 
         return $this->getRestaurants($restaurantTypeLinks);
@@ -151,16 +137,6 @@ class restaurantTypeLink_Service extends base
             $restaurants[] = $restaurant;
         }
         return $restaurants;
-    }
-
-    private function checkDuple($restaurants, $restaurantId)
-    {
-        foreach ($restaurants as $r) {
-            if ($r->getId() == $restaurantId) {
-                return 0;
-            }
-        }
-        return 1;
     }
 
 }

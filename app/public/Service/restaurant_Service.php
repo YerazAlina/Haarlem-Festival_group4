@@ -11,79 +11,17 @@ class restaurant_Service extends base
 {
     public function __construct()
     {
-        $this->db = new restaurant_DAO();
+        $this->database = new restaurant_DAO();
     }
 
     public function getAll(): array
     {
-        return $this->db->getArray();
-    }
-
-
-    public function updateRestaurant(int $id, ?int $locationId, ?string $name, ?string $description, ?int $stars, ?int $seats, ?int $phoneNumber, ?float $price, ?string $parking, ?string $website, ?string $menu, ?string $contact): bool
-    {
-        $update = [
-            "id" => $id,
-        ];
-
-        if (!is_null($locationId))
-            $update["locationid"] = $locationId;
-
-        if (!is_null($name))
-            $update["name"] = $name;
-
-        if (!is_null($description))
-            $update["description"] = $description;
-
-        if (!is_null($stars))
-            $update["stars"] = $stars;
-
-        if (!is_null($seats))
-            $update["seats"] = $seats;
-
-        if (!is_null($phoneNumber))
-            $update["phoneNumber"] = $phoneNumber;
-
-        if (!is_null($price))
-            $update["price"] = $price;
-
-        if (!is_null($parking))
-            $update["parking"] = $parking;
-
-        if (!is_null($website))
-            $update["website"] = $website;
-
-        if (!is_null($menu))
-            $update["menu"] = $menu;
-
-        if (!is_null($contact))
-            $update["contact"] = $contact;
-
-        return $this->db->update($update);
-    }
-
-    public function insertRestaurant(int $locationId, string $name, string $description, int $stars, int $seats, int $phoneNumber, float $price, string $parking, string $website, string $menu, string $contact)
-    {
-        $insert = [
-            "locationId" => $locationId,
-            "name" => $name,
-            "description" => $description,
-            "stars" => $stars,
-            "seats" => $seats,
-            "phoneNumber" => $phoneNumber,
-            "price" => $price,
-            "parking" => $parking,
-            "website" => $website,
-            "menu" => $menu,
-            "contact" => $contact
-        ];
-
-        return $this->db->insert($insert);
+        return $this->database->getArray();
     }
 
     public function getById($id)
     {
-        return $this->db->get([
+        return $this->database->get([
             "restaurant.id" => $id
         ]);
     }
@@ -138,7 +76,7 @@ class restaurant_Service extends base
 
     public function getAllRestaurantsAsStr()
     {
-        $restaurants = $this->db->getArray();
+        $restaurants = $this->database->getArray();
         $restaurantStr = [];
         foreach ($restaurants as $b) {
             $restaurantStr[(string)$b->getId()] = $b->getName();
@@ -163,12 +101,12 @@ class restaurant_Service extends base
         if (count($stars) > 0) {
             $filter = array_merge($filter, array("restaurant.stars" => $stars));
         }
-        return $this->db->getArray($filter);
+        return $this->database->getArray($filter);
     }
 
     public function getBySearchTerm($search)
     {
-        $restaurants = $this->db->getArray(["restaurant.name" => new containDB($search)]);
+        $restaurants = $this->database->getArray(["restaurant.name" => new containDB($search)]);
         return $restaurants;
     }
 
@@ -186,6 +124,6 @@ class restaurant_Service extends base
         if ($stars4) {
             $stars[] = "4";
         }
-        return $this->db->getArray(["restaurant.stars" => $stars]);
+        return $this->database->getArray(["restaurant.stars" => $stars]);
     }
 }

@@ -1,6 +1,7 @@
 <?php
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once("../Model/restaurantType.php");
+require_once ($root . "/Model/restaurantType.php");
 require_once("dynamicQuery.php");
 
 class restaurantType_DAO extends dynamicQuery {

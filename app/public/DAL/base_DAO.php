@@ -1,9 +1,12 @@
 <?php
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 require_once("containDB.php");
-require_once("../Model/time.php");
-require_once("../Model/date.php");
-require_once("../Exceptions/appException.php");
+//require __DIR__ . '/../Model/time.php';
+require_once ($root . "/Model/time.php");
+//require __DIR__ . '/../Model/date.php';
+require_once ($root . "/Model/date.php");
+//require __DIR__ . '/../Exceptions/appException.php';
 
 abstract class base_DAO {
     protected mysqli $conn;
@@ -19,7 +22,7 @@ abstract class base_DAO {
         $stmt = $this->conn->prepare($query);
 
         if(!$stmt){
-            throw new appException($this->conn->error);
+            throw new Exception($this->conn->error);
         }
 
         $this->stmt = $stmt;
@@ -62,7 +65,7 @@ abstract class base_DAO {
     protected function execAndCloseQuery(){
         $res = $this->execQuery();
         if (!$res)
-            throw new appException($this->conn->error);
+            throw new Exception($this->conn->error);
 
         $this->closeQuery();
         return $res;
@@ -120,14 +123,14 @@ abstract class base_DAO {
                             $this->localVars[] = $var->toString();
                             break;
                         default:
-                            throw new appException("[DB] Unknown class " . gettype($var));
+                            throw new Exception("[DB] Unknown class " . gettype($var));
                     }
                     break;
                 case "array":
                     $this->getParametersType($var);
                     break;
                 default:
-                    throw new appException("[DB] Unknown type " . gettype($var));
+                    throw new Exception("[DB] Unknown type " . gettype($var));
             }
         }
     }

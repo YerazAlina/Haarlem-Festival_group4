@@ -1,6 +1,7 @@
 <?php
 
-include_once '../config/mysqliConfig.php';
+require __DIR__ . '/../config/mysqliConfig.php';
+
 
 class database {
     private mysqli $conn;
@@ -38,7 +39,7 @@ class database {
         $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DB);
         
         if(!$conn){
-            throw new appException("Could not make a connection to the database");
+            throw new Exception("Could not make a connection to the database");
         }
 
         return $conn;

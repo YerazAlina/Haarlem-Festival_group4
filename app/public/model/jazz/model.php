@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class sqlModel
+abstract class model
 {
     protected const sqlTableName = "";
     protected const sqlPrimaryKey = "id";

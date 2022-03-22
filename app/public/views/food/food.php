@@ -24,51 +24,13 @@
 </head>
 
 <body class="food-body">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #A42323">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="home"> <img src="../../img/logo.png" alt="logo" width="116" height="34"> </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="home">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="food">FOOD</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="jazzevents">JAZZ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">DANCE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HISTORY</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            English
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Dutch</a></li>
-                        </ul>
-                    <!-- </li>
-
-                    <li class="nav-item">
-                        <img src="">
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HISTORY</a>
-                    </li> -->
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php 
+    require __DIR__ . '/../navbar.php'; 
+    require __DIR__ . '/../../Service/foodactivity_Service.php';
+    require __DIR__ . '/../../Service/restaurant_Service.php';
+    require __DIR__ . '/../../Service/restaurantTypeLink_Service.php';
+    
+    ?>
 
     <header>
         <img class="eventimg" src="../img/food/food1.png">
@@ -165,16 +127,7 @@
         </div>
     </div>
 
-    <footer class="text-center text-white" style="background-color: #EFE0E0;">
-        <div class="container pt-4">
-            <section class="mb-4" style="color: black;">
-                &copy; 2022 Copyright Haarlem Festival
-            </section>
-        </div>
-        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.06);">
-            <a class="text-dark">Privacy Policy / Terms of Use / Cookie Policy / Access Equality</a>
-        </div>
-    </footer>
+    <?php require __DIR__ . '/../cms/footer.php'; ?>
 
 </body>
 

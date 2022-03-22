@@ -72,7 +72,7 @@ class restaurant extends model {
             $sqlRes[self::sqlTableName . "seats"],
             $sqlRes[self::sqlTableName . "phonenumber"],
             $sqlRes[self::sqlTableName . "price"],
-            $sqlRes[self::sqlTableName . "parking"]
+            $sqlRes[self::sqlTableName . "parking"],
             $sqlRes[self::sqlTableName . "website"],
             $sqlRes[self::sqlTableName . "menu"],
             $sqlRes[self::sqlTableName . "contact"]
