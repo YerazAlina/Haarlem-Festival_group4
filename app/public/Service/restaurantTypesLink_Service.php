@@ -9,7 +9,7 @@ require_once($root . "/DAL/containDB.php");
 require_once($root . "/DAL/restaurantTypeLink_DAO.php");
 require_once($root . "/DAL/restaurantType_DAO.php");
 
-class restaurantTypeLink_Service extends base
+class restaurantTypesLink_Service extends base
 {
     private array $types; 
 

@@ -1,12 +1,12 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once ("foodactivity_Service.php");
+require_once ($root . "/Service/foodactivity_Service.php");
 require_once ($root . "/DAL/containDB.php");
 require_once ($root . "/DAL/activity_DAO.php");
-require_once ("restaurant_Service.php");
-require_once ("location_Service.php");
-require_once ("base.php");
+require_once ($root . "/Service/restaurant_Service.php");
+require_once ($root . "/Service/location_Service.php");
+require_once ($root . "/Service/base.php");
 
 class activity_Service extends base
 {
@@ -33,7 +33,7 @@ class activity_Service extends base
                 $name = $a->getName();
                 break;
             default:
-                throw new appException("Invalid type provided");
+                throw new Exception("Invalid type provided");
         }
 
         if ($inclClassName)

@@ -1,24 +1,20 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once("activityBase_Service.php");
-//require __DIR__ . '/../DAL/foodactivity_DAO';
+require_once ($root . "/Service/activityBase_Service.php");
 require_once ($root . "/DAL/foodactivity_DAO.php");
-//require __DIR__ . '/../DAL/containDB.php';
 require_once ($root . "/DAL/containDB.php");
-//require __DIR__ . '/../HTML/table.php';
 require_once ($root . "/HTML/table.php");
-//require __DIR__ . '/../Exceptions/appException.php';
-require_once("restaurantTypeLink_Service.php");
+require_once ($root . "/Service/restaurantTypesLink_Service.php");
 
 
 class foodactivity_Service extends activityBase_Service {
 
-    private restaurantTypeLink_Service $types;
+    private restaurantTypesLink_Service $types;
 
     public function __construct(){
         $this-> database = new foodactivity_DAO();
-        $this->types = new restaurantTypeLink_Service();
+        $this->types = new restaurantTypesLink_Service();
     }
 
     public function getTablesChild(array $css, array $dates): array

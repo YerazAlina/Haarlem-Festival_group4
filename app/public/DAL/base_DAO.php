@@ -1,20 +1,20 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once("containDB.php");
-//require __DIR__ . '/../Model/time.php';
+require_once($root . "/DAL/containDB.php");
 require_once ($root . "/Model/time.php");
-//require __DIR__ . '/../Model/date.php';
 require_once ($root . "/Model/date.php");
-//require __DIR__ . '/../Exceptions/appException.php';
+require_once ($root . "/DAL/database.php");
 
-abstract class base_DAO {
-    protected mysqli $conn;
-    protected mysqli_stmt $stmt;
+abstract class base_DAO extends database{
+    // protected mysqli $conn;
+    // protected mysqli_stmt $stmt;
+    protected  $conn;
+    protected  $stmt;
     private string $types;
     private array $localVars;
 
-    public function __construct(mysqli $conn){
+    public function __construct($conn){
         $this->conn = $conn;
     }
 

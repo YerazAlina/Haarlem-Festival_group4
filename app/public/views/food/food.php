@@ -24,12 +24,17 @@
 </head>
 
 <body class="food-body">
+
     <?php 
-    require __DIR__ . '/../navbar.php'; 
-    require __DIR__ . '/../../Service/foodactivity_Service.php';
-    require __DIR__ . '/../../Service/restaurant_Service.php';
-    require __DIR__ . '/../../Service/restaurantTypeLink_Service.php';
+
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
     
+    require_once ($root . "/views/navbar.php");
+    require_once ($root . "/Service/foodactivity_Service.php");
+    require_once ($root . "/Service/restaurant_Service.php");
+    require_once ($root . "/Service/restaurantTypesLink_Service.php");
+    $restaurant_service = new restaurant_Service();
+    $restaurantTypesLink_service = new restaurantTypesLink_Service();
     ?>
 
     <header>

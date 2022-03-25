@@ -1,10 +1,9 @@
 <?php
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once ("base.php");
-//require_once("../Exceptions/appException.php");
+
+require_once ($root . "/Service/base.php");
 require_once($root . "/Exceptions/appException.php");
-//require_once("../DAL/location_DAO.php");
 require_once($root . "/DAL/location_DAO.php");
 
 abstract class activityBase_Service extends base {

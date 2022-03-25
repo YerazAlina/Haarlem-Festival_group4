@@ -1,11 +1,11 @@
 <?php
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once($root . "/Service/restaurantTypesLink_Service.php");
 
-require_once("activityBase_Service.php");
-require_once("foodactivity_Service.php");
+require_once($root . "/Service/activityBase_Service.php");
+require_once($root . "/Service/foodactivity_Service.php");
 require_once($root . "/DAL/restaurant_DAO.php");
-require_once("restaurantTypeLink_Service.php");
 
 class restaurant_Service extends base
 {
