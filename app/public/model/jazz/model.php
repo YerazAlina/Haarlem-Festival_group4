@@ -29,12 +29,12 @@ abstract class model
         return static::sqlPrimaryIncrement;
     }
 
-    public abstract function getSqlFields();
+    public abstract function sqlGetFields();
 
     public abstract static function sqlParse(array $sqlRes) : self;
 
     public static function sqlParseFunc() {
-        return function (array $sqlRes) : model {
+        return function (array $sqlRes) : sqlModel {
             return static::sqlParse($sqlRes);
         };
     }
