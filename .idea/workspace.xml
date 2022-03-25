@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="724affc9-65d8-43b3-968b-4473217424c0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/artist.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/date.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/jazzactivity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/location.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/model.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/performance.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/time.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sql-scripts/data.sql/haarlem_jazz.sql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="26qvXkS64etbqfa0zSlilNhjnoc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="724affc9-65d8-43b3-968b-4473217424c0" name="Changes" comment="" />
+      <created>1648163977197</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648163977197</updated>
+      <workItem from="1648163983892" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

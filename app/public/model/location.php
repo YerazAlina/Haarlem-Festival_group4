@@ -1,26 +1,24 @@
 <?php
-
 require_once("model.php");
+
 
 
 class location extends model {
     
     private int $id;
     private string $name;
-    private string $hall;
     private string $address;
     private string $postalCode;
     private string $city;
 
     protected const sqlTableName = "location";
-    protected const sqlFields = ["id", "name", "hall", "address", "postalCode", "city"];
+    protected const sqlFields = ["id", "name", "postalCode", "city"];
 
     public function __construct(){}
 
-    public function constructor(int $id, string $name, string $hall, string $address, string $pCode, string $city){
+    public function constructor(int $id, string $name, string $address, string $pCode, string $city){
         $this->id = $id;
         $this->name = $name;
-        $this->hall = $hall;
         $this->address = $address;
         $this->postalCode = $pCode;
         $this->city = $city;
@@ -33,7 +31,6 @@ class location extends model {
         return[
             "id" => $this->id,
             "name" => $this->name,
-            "hall" => $this->hall;
             "address" => $this->address,
             "postalCode" => $this->postalCode,
             "city" => $this->city
@@ -45,7 +42,6 @@ class location extends model {
         return (new self())->constructor(
             $sqlRes[self::sqlTableName . "id"],
             $sqlRes[self::sqlTableName . "name"],
-            $sqlRes[self::sqlTableName . "hall"],
             $sqlRes[self::sqlTableName . "address"],
             $sqlRes[self::sqlTableName . "postalCode"],
             $sqlRes[self::sqlTableName . "city"]
@@ -70,11 +66,6 @@ class location extends model {
     public function getName()
     {
         return $this->name;
-    }
-
-    public function getHall()
-    {
-        return $this->hall;
     }
 
     public function getPostalcode()

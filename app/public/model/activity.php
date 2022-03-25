@@ -1,13 +1,12 @@
 <?php
-
 require_once ("model.php");
 require_once ("location.php");
 require_once ("time.php");
 require_once ("date.php");
 
-class performance extends model {
-
+class activity extends model {
     private int $id;
+    private string $type;
     private DateTime $date;
     private DateTime $startTime;
     private DateTime $endTime;
@@ -16,13 +15,14 @@ class performance extends model {
     private int $ticketsLeft;
     
 
-    protected const sqlTableName = "performance";
-    protected const sqlFields = ["id", "date", "startTime", "endTime", "locationId", "price", "ticketsLeft"];
+    protected const sqlTableName = "activity";
+    protected const sqlFields = ["id", "type", "date", "startTime", "endTime", "locationId", "price", "ticketsLeft"];
     protected const sqlLinks = ["locationId" => location::class];
 
-    public function constructor(int $id, ?DateTime $date, DateTime $startTime, ?DateTime $endTime, ?location $location, float $price, ?int $ticketsLeft) {
+    public function constructor(int $id, string $type, ?DateTime $date, DateTime $startTime, ?DateTime $endTime, ?location $location, float $price, ?int $ticketsLeft) {
 
         $this->id = $id;
+        $this->type = $type;
 
         if(!is_null($dat)){
             $this->date = $date;
@@ -51,6 +51,9 @@ class performance extends model {
         $array = [
             "id" => $this->id
         ];
+
+        if (isset($this->type))
+            $array["type"] = $this->type;
 
         if (isset($this->date))
             $array["date"] = $this->date;
@@ -90,6 +93,7 @@ class performance extends model {
 
         return (new self())->constructFull(
             $sqlRes[self::sqlTableName . "id"],
+            $sqlRes[self::sqlTableName . "type"],
             $date,
             $startT,
             $endT,
@@ -108,6 +112,18 @@ class performance extends model {
     public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 
     

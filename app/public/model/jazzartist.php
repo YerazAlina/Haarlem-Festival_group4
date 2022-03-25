@@ -5,7 +5,7 @@ require_once("location.php");
 
 
 
-class artist extends model {
+class jazzArtist extends model {
 
     private int $id;
     private string $name;
@@ -68,6 +68,7 @@ class artist extends model {
     public function setDescription($description)
     {
         $this->description = $description;
+        
     }
 
    
