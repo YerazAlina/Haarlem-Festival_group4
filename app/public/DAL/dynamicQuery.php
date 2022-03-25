@@ -3,7 +3,7 @@
 require_once("database.php");
 require_once("containDB.php");
 require_once("base_DAO.php");
-require_once("../Exceptions/appException.php");
+//require __DIR__ . '/../Exceptions/appException.php';
 
 
 class dynamicQuery extends base_DAO {
@@ -78,7 +78,7 @@ class dynamicQuery extends base_DAO {
 
         $columns = $newColumns;
 
-        $query = "INSERT INTO " . $this->class:sqlTableName() . " (";
+        $query = "INSERT INTO " . $this->class::sqlTableName() . " (";
 
         foreach($columns as $col){
             $values[] = $fields[$col];
@@ -204,7 +204,7 @@ class dynamicQuery extends base_DAO {
             $limit = $filter["limit"];
             unset($filter["limit"]);
             if (gettype($limit) != "integer")
-                throw new appException("This is off-limits");
+                throw new Exception("This is off-limits");
         }
 
         if (!empty($filter)){

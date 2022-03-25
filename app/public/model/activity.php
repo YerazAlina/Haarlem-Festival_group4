@@ -19,6 +19,10 @@ class activity extends model {
     protected const sqlFields = ["id", "type", "date", "startTime", "endTime", "locationId", "price", "ticketsLeft"];
     protected const sqlLinks = ["locationId" => location::class];
 
+    public function __construct(){
+
+    }
+
     public function constructor(int $id, string $type, ?DateTime $date, DateTime $startTime, ?DateTime $endTime, ?location $location, float $price, ?int $ticketsLeft) {
 
         $this->id = $id;

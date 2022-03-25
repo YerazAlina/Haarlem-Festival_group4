@@ -27,8 +27,14 @@ class SwitchRouter
             case 'logout':
                 require __DIR__ . '/views/cms/logout.php';
                 break;
-            case 'homepage':
-                require __DIR__ . '/homepage.php';
+            case 'home':
+                require __DIR__ . '/views/home.php';
+                break;
+            case 'food':
+                require __DIR__ . '/views/food/food.php';
+                break;
+            case 'foodReservation':
+                require __DIR__ . '/views/food/foodReservation.php';
                 break;
             case 'festivalinfo':
                 require __DIR__ . '/views/festivalInfo.php';
