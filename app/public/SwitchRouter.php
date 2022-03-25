@@ -18,9 +18,6 @@ class SwitchRouter
             case 'homecms':
                 require __DIR__ . '/views/cms/homecms.php';
                 break;
-            case 'login':
-                require __DIR__ . '/views/cms/login.php';
-                break;
             case 'register':
                 require __DIR__ . '/views/cms/register.php';
                 break;
@@ -29,6 +26,11 @@ class SwitchRouter
                 break;
             case 'homepage':
                 require __DIR__ . '/homepage.php';
+                break;
+            case 'login':
+                require __DIR__ . '/CMS/controller/usercontroller.php';
+                $controller = new UserController();
+                $controller->index();
                 break;
             default:
                 echo '404 not found';

@@ -1,5 +1,4 @@
 <?php
-
 // it autoloads all classes in the Controller folder
 static function autoload($class) {
     include (ROOT.'/'.$class.'.php');

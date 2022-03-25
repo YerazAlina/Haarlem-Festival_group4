@@ -7,15 +7,13 @@ class user extends model
     private int $id;
     private string $email;
     private string $firstname;
-    private string $lastmame;
+    private string $lastname;
     private string $password;
     private role $role;
-}
 
 protected const sqlTableName = "users";
 protected const sqlFields = ["id", "email", "firstname", "lastname", "password", "roleId"];
 protected const sqlLinks = ["roleId" => role::class];
-
 
     public function constructor(int $id, string $email, string $firstname, string $lastmame, string $password, Role $role){
         
