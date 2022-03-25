@@ -3,6 +3,7 @@ namespace app\models;
 
 class historyactivity extends model
 {
+    //check if this class is needed, more or less is same as tour.php
   
     private DateTime $date;
     private DateTime $time;

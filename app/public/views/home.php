@@ -76,7 +76,7 @@
     </section>
 
     
-    <?php require __DIR__ . '/views/cms/footer.php';?>
+    <?php require __DIR__ . '/cms/footer.php';?>
 
 
 
