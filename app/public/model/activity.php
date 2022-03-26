@@ -1,8 +1,8 @@
 <?php
 require_once ("model.php");
 require_once ("location.php");
-require_once ("time.php");
-require_once ("date.php");
+//require_once ("time.php");
+//require_once ("date.php");
 
 class activity extends model {
     private int $id;

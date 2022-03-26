@@ -2,14 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="724affc9-65d8-43b3-968b-4473217424c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/artist.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/date.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/jazzactivity.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/location.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/model.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/performance.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/model/jazz/time.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/sql-scripts/data.sql/haarlem_jazz.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/DAL/base_DAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/DAL/base_DAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/DAL/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/DAL/dynamicQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/DAL/dynamicQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/DAL/jazzactivity_DAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/DAL/jazzactivity_DAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/DAL/jazzartist_DAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/DAL/jazzartist_DAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/Service/activityBase_Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Service/activityBase_Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/Service/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Service/base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/Service/foodactivity_Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Service/foodactivity_Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/Service/jazzactivity_Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Service/jazzactivity_Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/config/mysqliConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/config/mysqliConfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/model/activity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazzactivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/model/jazzactivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/jazzartist.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/model/jazzartist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/model/time.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/model/time.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/views/jazz/jazzevents.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/views/jazz/jazzevents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/mariadb.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/mariadb.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/php.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/php.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +40,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -41,6 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1648163977197</updated>
       <workItem from="1648163983892" duration="17000" />
+      <workItem from="1648302704730" duration="12000" />
+      <workItem from="1648302785312" duration="175000" />
     </task>
     <servers />
   </component>

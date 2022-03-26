@@ -6,7 +6,7 @@ require_once("dynamicQuery.php");
 class jazzartist_DAO extends dynamicQuery {
 
     public function __construct(){
-        parent::__construct(artist::class);
+        parent::__construct(jazzartist::class);
     }
 
     public function get(array $filter = []){

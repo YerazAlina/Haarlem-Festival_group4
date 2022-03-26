@@ -2,10 +2,10 @@
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once("activityBaseService.php");
-require_once($root . "/DAL/jazzactivityDAO.php");
-require_once($root . "/DAL/jazzbandDAO.php");
-require_once ("jazzBandService.php");
+require_once ($root . "activityBase_Service.php");
+require_once ($root . "/DAL/jazzactivity_DAO.php");
+require_once ($root . "/DAL/containDB.php");
+require_once ($root . "/HTML/table.php");
 
 class jazzactivityService extends activityBaseService
 {

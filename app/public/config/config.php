@@ -1,5 +1,6 @@
 <?php
 
+/*
 //test
 $db_server = 'mysql';
 $db_username = 'root';
@@ -13,3 +14,4 @@ try{
 } catch(PDOException $e){
     die("ERROR: Could not connect. " . $e->getMessage());
 }
+*/

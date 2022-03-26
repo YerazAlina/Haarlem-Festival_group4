@@ -1,15 +1,15 @@
 <?php
 
 require_once ("model.php");
-require_once ("jazzArtist.php");
-require_once ("jazzActivity.php");
+require_once ("jazzartist.php");
+require_once ("jazzactivity.php");
 
 
-class jazzActivity extends model {
+class jazzactivity extends model {
 
     private int $id;
-    private artist $artist;
-    private activity $activity ;
+    private artist $artistId;
+    private activity $activityId ;
     private string $activityHall;
 
     protected const sqlTableName = "jazzActivity";
@@ -18,11 +18,11 @@ class jazzActivity extends model {
 
     public function __construct() {}
 
-    public function constructFull(int $id, artist $artist, activity $activity, string $activityHall) {
+    public function constructFull(int $id, artist $artistId, activity $activityId, string $activityHall) {
         
         $this->id = $id;
-        $this->artist = $artist;
-        $this->activity = $activity;
+        $this->artistId = $artistId;
+        $this->activityId = $activityId;
         $this->activityHall = $activityHall;
 
         return $this;
@@ -32,8 +32,8 @@ class jazzActivity extends model {
 
         return [
             "id" => $this->id,
-            "artistId" => $this->artist->getId(),
-            "activityId" => $this->activity->getId(),
+            "artistId" => $this->artistId->getId(),
+            "activityId" => $this->activityId->getId(),
             "activityHall" => $this->activityHalle->getactivityHall()
         ];
     }
@@ -66,28 +66,28 @@ class jazzActivity extends model {
     }
 
 
-    public function getartist()
+    public function getartistId()
     {
-        return $this->artist;
+        return $this->artistId;
     }
 
 
-    public function setartist($artist)
+    public function setartistId($artistId)
     {
-        $this->artist = $artist;
+        $this->artistId = $artistId;
 
         return $this;
     }
 
-    public function getactivity()
+    public function getactivityId()
     {
-        return $this->activity;
+        return $this->activityId;
     }
 
 
-    public function setactivityId($activity)
+    public function setactivityId($activityId)
     {
-        $this->activityId = $activity;
+        $this->activityId = $activityId;
 
         return $this;
     }

@@ -1,3 +1,16 @@
+<?php
+
+require_once '../db.php';
+$db = DB::getInstance();
+$GET_ALL_EVENTS = "SELECT * FROM jazzactivity 
+                    JOIN artist a on jazzactivity.artistId = a.id
+                    JOIN performance p on p.id = jazzactivity.performanceId
+                    JOIN location l on l.id = p.locationId WHERE date='2022-07-28'";
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,7 +104,10 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
         <?php
-            foreach ($events as $event) {
+
+        $events = $db->query($GET_ALL_EVENTS);
+        foreach ($events as $e) {
+
         ?>
 
         <div class="col-md-4 mb-4">
@@ -107,7 +123,7 @@
                 </div>
 
                 <div class="card-body-event">
-                    <h5 class="card-title"><?php echo $post['artist'] ?></h5>
+                    <h5 class="card-title"><?php echo $e['description'] ?></h5>
                     <p class="card-text">Artist info</p>
                     <p class="card-subtitle">Time of event </p>
                     <p class="card-subtitle"> Location | Price </p>
@@ -119,6 +135,10 @@
                 </div>
             </div>
         </div>
+
+        <?php
+          }
+        ?>
 
     
         <div class="col-md-4 mb-4">

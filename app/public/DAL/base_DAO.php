@@ -1,28 +1,25 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once($root . "/DAL/containDB.php");
-require_once ($root . "/Model/time.php");
-require_once ($root . "/Model/date.php");
-require_once ($root . "/DAL/database.php");
+require_once("../db.php");
+require_once("model/time.php");
+require_once("model/date.php");
+require_once("Exceptions/appException.php");
 
-abstract class base_DAO extends database{
-    // protected mysqli $conn;
-    // protected mysqli_stmt $stmt;
-    protected  $conn;
-    protected  $stmt;
+abstract class base_DAO {
+    
+    private DB $db;
     private string $types;
     private array $localVars;
 
-    public function __construct($conn){
-        $this->conn = $conn;
+    public function __construct(){
+        $this->db = DB::getInstance();
     }
 
     protected function prepareQuery($query){
-        $stmt = $this->conn->prepare($query);
+        $stmt = $this->db->prepare($query);
 
         if(!$stmt){
-            throw new Exception($this->conn->error);
+            throw new appException($this->db->error);
         }
 
         $this->stmt = $stmt;
@@ -65,7 +62,7 @@ abstract class base_DAO extends database{
     protected function execAndCloseQuery(){
         $res = $this->execQuery();
         if (!$res)
-            throw new Exception($this->conn->error);
+            throw new appException($this->db->error);
 
         $this->closeQuery();
         return $res;
@@ -123,14 +120,14 @@ abstract class base_DAO extends database{
                             $this->localVars[] = $var->toString();
                             break;
                         default:
-                            throw new Exception("[DB] Unknown class " . gettype($var));
+                            throw new appException("[DB] Unknown class " . gettype($var));
                     }
                     break;
                 case "array":
                     $this->getParametersType($var);
                     break;
                 default:
-                    throw new Exception("[DB] Unknown type " . gettype($var));
+                    throw new appException("[DB] Unknown type " . gettype($var));
             }
         }
     }
