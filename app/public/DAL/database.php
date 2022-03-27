@@ -1,9 +1,14 @@
 <?php
 
-define ( 'DB_HOST', 'mysql' );
+// define ( 'DB_HOST', 'mysql' );
+// define ( 'DB_USER', 'root' );
+// define ( 'DB_PASSWORD', 'secret123' );
+// define ( 'DB_DB', 'developmentdb' );
+
+define ( 'DB_HOST', 'localhost' );
 define ( 'DB_USER', 'root' );
-define ( 'DB_PASSWORD', 'secret123' );
-define ( 'DB_DB', 'developmentdb' );
+define ( 'DB_PASSWORD', '' );
+define ( 'DB_DB', 'hf_db' );
 
 class database extends PDO {
     private $conn;
@@ -26,14 +31,8 @@ class database extends PDO {
     // Constructor
     private function __construct() {
 
-
-
-
-
-
-
-
-        $this->conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD)  or die ("<br/>Could not connect to MySQL server");
+        $this->conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD)
+            or die("<br/>Could not connect to MySQL server" . mysqli_error());
         mysqli_select_db($this->conn, DB_DB) or die ("<br/>Could not select the indicated database");
 
     }
