@@ -2,7 +2,7 @@
 
 require __DIR__. ('../../service/UserService.php');
 
-class usercontroller
+class UserController
 {
     private UserService $service;
 
@@ -13,18 +13,18 @@ class usercontroller
 
     public function index()
     {
-        $users = $this->service->getAll();
+        $users = $this->service->getAllUsers();
         echo json_encode($users);
-        //the above returns {"name":"John", "surname":"Doe", "username" : "TestJson"}
-        //include_once __DIR__. ('../../views/login.php');
     }
 
     public function createUsers($vars)
     {
-        //everything from the model layer except id..
-        //$name = $vars["name"];
-        //$price = $vars["price"];
-        return $this->service->createUser($name, $price);
+        $email = $vars["email"];
+        $firstname = $vars["firstname"];
+        $lastname = $vars["lastname"];
+        $password = $vars["password"];
+        //$roleId = $vars["roleId"];
+        return $this->service->createUser($email, $firstname, $lastname, $password);
     }
 
     public function deleteUser($id)
@@ -36,6 +36,5 @@ class usercontroller
     {
         $user = $this->service->getOneUser($path);
         echo json_encode($user); 
-
     }
 }

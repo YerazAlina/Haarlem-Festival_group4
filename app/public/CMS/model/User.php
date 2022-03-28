@@ -8,7 +8,6 @@ class User implements \JsonSerializable
     private string $lastname;
     private string $password;
     private int $roleId;
-    private string $datetime;
 
     public function jsonSerialize() {
         return [
@@ -17,7 +16,6 @@ class User implements \JsonSerializable
             'lastname' => $this->lastname,
             'password' => $this->password,
             'roleId' => $this->roleId,
-            'datetime' => $this->datetime
         ];
     }
 }
