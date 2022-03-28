@@ -1,4 +1,5 @@
 <?php
+
 class time {
 
     private DateTime $time;

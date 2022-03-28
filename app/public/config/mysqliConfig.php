@@ -1,4 +1,6 @@
+
 <?php
+/*
 // Database credentials
 $useLocalhost = false;
 if($useLocalhost) {
@@ -18,5 +20,6 @@ if($useLocalhost) {
     define ( 'DB_PASSWORD', 'Qcn3qEQ4rE' );
     define ( 'DB_DB', 'sql11479863' );
 }
+*/
 
 ?>
