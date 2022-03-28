@@ -23,6 +23,7 @@ class UserController
         $lastname = $vars["lastname"];
         $password = $vars["password"];
         //$roleId = $vars["roleId"];
+
         return $this->service->createUser($email, $firstname, $lastname, $password);
     }
 
@@ -42,21 +43,18 @@ class UserController
         $count = $this->service->login();
 
         if ($count > 0) {
-            include_once __DIR__ . '../../views/homecms.php';
+            header('Location: homepage');
+            exit;
         } else {
-            include_once __DIR__ . '../../views/login.php';
+            include_once __DIR__ . ('../../views/login.php');
         }
     }
 
     public function logout()
     {
-        // Unset all of the session variables
-        $_SESSION = array();
-
-        // Destroy the session
-        session_destroy();
-
-        // Redirect to login page
-        include_once __DIR__. '../../views/login.php';
+        $this->service->logout();
+        
+        //Redirect to login page
+        include_once __DIR__ . '../../views/login.php';
     }
 }

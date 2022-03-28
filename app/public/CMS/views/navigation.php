@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION['email'])) {
+    $name = $_SESSION['email'];
+} ?>
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #A42323;">
     <a class="navbar-brand me-6">
         <img src="../../img/logo.png" height="70" alt="Haarlem Festival" style="margin-top: -5px;" />
@@ -14,12 +19,12 @@
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="updateprogram">Update Program</a>
+                    <a class="nav-link" style="color: white;" href="!!">User Management</a>
                 </li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="invoices">Invoices</a>
+                    <a class="nav-link" style="color: white;" href="!!">Update Program</a>
                 </li>
             </ul>
         </div>
@@ -40,6 +45,7 @@
         </a>
         <img src="../../img/avatar.png" alt="Avatar" class="avatar" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 50%;">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white; text-decoration: none;">
-            <?php echo $name; ?> </a>
+            <?php
+            echo $name; ?> </a>
     </div>
 </nav>

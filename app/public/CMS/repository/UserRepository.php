@@ -53,4 +53,36 @@ class UserRepository extends Repository
 
         return $this->stmt->execute();
     }
+
+    public function login()
+    {
+        $count = "";
+
+        if (isset($_POST["login"])) {
+            if (empty($_POST["email"]) || empty($_POST["password"])) {
+                $message = '<label>All fields are required</label>';
+            } else {
+                $query = "SELECT * FROM users WHERE email = :email AND password = :password";
+                $statement = $this->db->prepare($query);
+                $statement->execute(
+                    array(
+                        'email'        =>     $_POST["email"],
+                        'password'     =>     $_POST["password"]
+                    )
+                );
+                $count = $statement->rowCount();
+            }
+        }
+
+        return $count;
+    }
+
+    public function logout()
+    {
+        // Unset all of the session variables
+        $_SESSION = array();
+
+        // Destroy the session
+        session_destroy();
+    }
 }

@@ -1,9 +1,3 @@
-<?php
-if (isset($_SESSION['email'])) {
-	$name = $_SESSION['email'];
-} ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
