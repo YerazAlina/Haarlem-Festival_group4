@@ -1,12 +1,23 @@
 <?php
 
-class User
+class User implements \JsonSerializable
 {
-    public int $id;
-    public string $email;
-    public string $firstname;
-    public string $lastname;
-    public string $password;
-    public int $roleId;
-    public string $datetime;
+    private int $id;
+    private string $email;
+    private string $firstname;
+    private string $lastname;
+    private string $password;
+    private int $roleId;
+    private string $datetime;
+
+    public function jsonSerialize() {
+        return [
+            'email' => $this->email,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'password' => $this->password,
+            'roleId' => $this->roleId,
+            'datetime' => $this->datetime
+        ];
+    }
 }
