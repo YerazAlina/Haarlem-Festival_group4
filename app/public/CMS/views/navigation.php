@@ -46,6 +46,6 @@ if (isset($_SESSION['email'])) {
         <img src="../../img/avatar.png" alt="Avatar" class="avatar" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 50%;">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white; text-decoration: none;">
             <?php
-            echo $name; ?> </a>
+            echo 'name'; ?> </a>
     </div>
 </nav>

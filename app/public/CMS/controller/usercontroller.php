@@ -16,7 +16,7 @@ class UserController
         echo json_encode($users);
     }
 
-    public function createUsers($vars)
+    public function createUser($vars)
     {
         $email = $vars["email"];
         $firstname = $vars["firstname"];
@@ -55,6 +55,6 @@ class UserController
         $this->service->logout();
         
         //Redirect to login page
-        include_once __DIR__ . '../../views/login.php';
+        include_once __DIR__ . '../../views/login.php'; //TODO: URL SAYS LOGOUT WHEN AT LOGIN PAGE 
     }
 }

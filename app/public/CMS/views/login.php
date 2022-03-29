@@ -41,7 +41,7 @@
             <div class="form-group">
                 <input type="submit" class="btn" value="Login" name="login" style="background-color:#844242; color: white; width: 120px;">
             </div>
-            <p>Don't have an account? <a href="register">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="../../CMS/views/register.php">Sign up now</a>.</p>
         </form>
     </div>
 
