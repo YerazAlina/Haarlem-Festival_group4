@@ -13,6 +13,12 @@ class restaurantTypeLink extends model{
     protected const sqlFields = ["id", "restaurantId", "restaurantTypeId"];
     protected const sqlLinks = ["restaurantId" => restaurant::class, "restaurantTypeId" => restaurantType::class];
 
+
+    public function __construct(){
+
+    }
+
+
     public function constructor(int $id, restaurant $restaurant, restaurantType $type){
         $this->id = $id;
         $this->restaurant = $restaurant;
