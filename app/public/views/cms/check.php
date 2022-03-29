@@ -1,24 +1,24 @@
 <?php 
 //check if user exist 
-session_start();
+//session_start();
 
 include_once __DIR__ . '../../../config/config.php';
 
 if (isset($_POST["login"])) {
-    if (empty($_POST["username"]) || empty($_POST["password"])) {
+    if (empty($_POST["email"]) || empty($_POST["password"])) {
         $message = '<label>All fields are required</label>';
     } else {
-        $query = "SELECT * FROM users WHERE username = :username AND password = :password";
+        $query = "SELECT * FROM users WHERE email = :email AND password = :password";
         $statement = $pdo->prepare($query);
         $statement->execute(
             array(
-                'username'     =>     $_POST["username"],
+                'email'     =>     $_POST["email"],
                 'password'     =>     $_POST["password"]
             )
         );
         $count = $statement->rowCount();
         if ($count > 0) {
-            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["email"] = $_POST["email"];
             header("Location: homecms");
             exit;
         } else {

@@ -1,5 +1,3 @@
-<?php require_once __DIR__ . '/check.php';?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +23,7 @@
 
     <hr width="100%;" color="#FAFAFA" size="40">
 
+    
     <div class="wrapper" style="background-color:#FAFAFA;">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
@@ -42,7 +41,7 @@
             <div class="form-group">
                 <input type="submit" class="btn" value="Login" name="login" style="background-color:#844242; color: white; width: 120px;">
             </div>
-            <p>Don't have an account? <a href="register">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="../../CMS/views/register.php">Sign up now</a>.</p>
         </form>
     </div>
 
@@ -51,3 +50,11 @@
 </body>
 
 </html>
+
+<?php /* echo "<pre>";
+
+print_r($_POST);
+
+echo "</pre>"; */
+
+ ?>
