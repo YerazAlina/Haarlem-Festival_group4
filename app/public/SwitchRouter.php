@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class SwitchRouter
 {
@@ -7,30 +8,19 @@ class SwitchRouter
         switch ($uri) {
             case '':
                 //http://localhost/
-                require __DIR__ . '/views/cms/login.php';
-                break;
-            case 'invoices':
-                require __DIR__ . '/views/cms/invoices.php';
-                break;
-            case 'updateprogram':
-                require __DIR__ . '/views/cms/updateprogram.php';
-                break;
-            case 'homecms':
-                require __DIR__ . '/views/cms/homecms.php';
-                break;
-            case 'register':
-                require __DIR__ . '/views/cms/register.php';
-                break;
-            case 'logout':
-                require __DIR__ . '/views/cms/logout.php';
-                break;
-            case 'homepage':
-                require __DIR__ . '/homepage.php';
                 break;
             case 'login':
                 require __DIR__ . '/CMS/controller/usercontroller.php';
                 $controller = new UserController();
-                $controller->index();
+                $controller->autorize();
+                break;
+            case 'homepage':
+                require __DIR__. '/CMS/views/homecms.php';
+                break;
+            case 'logout':
+                require __DIR__ . '/CMS/controller/usercontroller.php';
+                $controller = new UserController();
+                $controller->logout();
                 break;
             default:
                 echo '404 not found';

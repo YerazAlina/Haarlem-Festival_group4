@@ -28,7 +28,6 @@ class DB extends PDO
         return self::$instance;
     }
 
-
     static function getConfig()
     {
         return [

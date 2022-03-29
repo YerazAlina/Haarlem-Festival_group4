@@ -1,23 +1,50 @@
 <?php
-require __DIR__.('../../db.php');
-require __DIR__.('../../model/User.php');
+require_once __DIR__ . ('../../model/User.php');
+require_once __DIR__ . ('../../repository/UserRepository.php');
 
 class UserService
 {
-    private DB $db;
+    private UserRepository $userRepository;
 
     public function __construct()
     {
-        $this->db = DB::getInstance();
+        $this->userRepository = new UserRepository();
     }
 
-    public function getAll()
+    public function getAllUsers()
     {
-        $stmt = $this->db->prepare("select * from users");
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
-        $stmt->execute();
+        return $this->userRepository->findAll();
+    }
 
-        $users = $stmt->fetchAll();
-        return $users;
+    public function createUser($email, $firstname, $lastname, $password)
+    {
+        $data = [
+            'email' => $email,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'password' => $password
+        ];
+        return $this->userRepository->saveOne($data);
+    }
+
+    public function deleteUser($id)
+    {
+        return $this->userRepository->deleteOne($id);
+    }
+
+    public function getOneUser($id)
+    {
+        return $this->userRepository->findById($id);
+    }
+
+    public function login()
+    {
+        return $this->userRepository->login();
+    }
+
+    public function logout()
+    {
+        return $this->userRepository->logout();
+
     }
 }

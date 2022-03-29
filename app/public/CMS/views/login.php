@@ -23,6 +23,7 @@
 
     <hr width="100%;" color="#FAFAFA" size="40">
 
+    
     <div class="wrapper" style="background-color:#FAFAFA;">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
@@ -49,3 +50,11 @@
 </body>
 
 </html>
+
+<?php /* echo "<pre>";
+
+print_r($_POST);
+
+echo "</pre>"; */
+
+ ?>
