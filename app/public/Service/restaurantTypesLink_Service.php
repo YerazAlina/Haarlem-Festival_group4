@@ -16,12 +16,12 @@ class restaurantTypesLink_Service extends base
 
     public function __construct()
     {
-        $this->database = new restaurantTypeLink_DAO();
+        $this->db = new restaurantTypeLink_DAO();
     }
 
     public function getTypeLink()
     {
-        $this->types = $this->database->get();
+        $this->types = $this->db->get();
     }
 
     private function getTypesFromId(int $id)
@@ -100,7 +100,7 @@ class restaurantTypesLink_Service extends base
             $filter = array_merge($filter, array("restaurantType.id" => $typeID));
         }
 
-        $restaurantTypeLinks = $this->database->get($filter);
+        $restaurantTypeLinks = $this->db->get($filter);
 
         return $this->getRestaurants($restaurantTypeLinks);
     }
@@ -109,9 +109,9 @@ class restaurantTypesLink_Service extends base
     public function getByType($typeID)
     {
         if ($typeID > 0) {
-            $restaurantTypeLinks = $this->database->getArray(["restaurantType.id" => $typeID]);
+            $restaurantTypeLinks = $this->db->getArray(["restaurantType.id" => $typeID]);
         } else {
-            $restaurantTypeLinks = $this->database->getArray();
+            $restaurantTypeLinks = $this->db->getArray();
         }
 
         return $this->getRestaurants($restaurantTypeLinks);

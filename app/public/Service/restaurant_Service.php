@@ -11,17 +11,17 @@ class restaurant_Service extends base
 {
     public function __construct()
     {
-        $this->database = new restaurant_DAO();
+        $this->db = new restaurant_DAO();
     }
 
     public function getAll(): array
     {
-        return $this->database->getArray();
+        return $this->db->getArray();
     }
 
     public function getById($id)
     {
-        return $this->database->get([
+        return $this->db->get([
             "restaurant.id" => $id
         ]);
     }
@@ -76,7 +76,7 @@ class restaurant_Service extends base
 
     public function getAllRestaurantsAsStr()
     {
-        $restaurants = $this->database->getArray();
+        $restaurants = $this->db->getArray();
         $restaurantStr = [];
         foreach ($restaurants as $b) {
             $restaurantStr[(string)$b->getId()] = $b->getName();
@@ -101,12 +101,12 @@ class restaurant_Service extends base
         if (count($stars) > 0) {
             $filter = array_merge($filter, array("restaurant.stars" => $stars));
         }
-        return $this->database->getArray($filter);
+        return $this->db->getArray($filter);
     }
 
     public function getBySearchTerm($search)
     {
-        $restaurants = $this->database->getArray(["restaurant.name" => new containDB($search)]);
+        $restaurants = $this->db->getArray(["restaurant.name" => new containDB($search)]);
         return $restaurants;
     }
 
@@ -124,6 +124,6 @@ class restaurant_Service extends base
         if ($stars4) {
             $stars[] = "4";
         }
-        return $this->database->getArray(["restaurant.stars" => $stars]);
+        return $this->db->getArray(["restaurant.stars" => $stars]);
     }
 }
