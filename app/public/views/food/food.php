@@ -47,16 +47,7 @@
     <h2>Restaurants</h2>
     <section id="">
 
-        <!-- <section class="grid-container" id="">
-
-            <section class="cuisine">
-                <p class="filterlabelSubtitle"></p>
-                <form method="post">
-                    <select name="cuisine" id="" ">
-                    
-                </select>
-            </form>
-        </section> -->
+        
         <section class=" searchbar">
                         <p class="filterlabelSubtitle">Search for a restaurant</p>
                         <form method="post">
