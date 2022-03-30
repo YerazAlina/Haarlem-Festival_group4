@@ -1,16 +1,3 @@
-<?php
-
-require_once '../db.php';
-$db = DB::getInstance();
-$GET_ALL_EVENTS = "SELECT * FROM jazzactivity 
-                    JOIN artist a on jazzactivity.artistId = a.id
-                    JOIN performance p on p.id = jazzactivity.performanceId
-                    JOIN location l on l.id = p.locationId WHERE date='2022-07-28'";
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +17,7 @@ $GET_ALL_EVENTS = "SELECT * FROM jazzactivity
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #A42323">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"> <img src="../eventslist/Logo.png" alt="logo" width="116" height="34"> </a>
+        <a class="navbar-brand" href="#"> <img src="../../img/logo.png" alt="logo" width="116" height="34"> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -50,6 +37,9 @@ $GET_ALL_EVENTS = "SELECT * FROM jazzactivity
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">HISTORY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shoppingCart">cart :)</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -91,229 +81,89 @@ $GET_ALL_EVENTS = "SELECT * FROM jazzactivity
 
 <section class="row align-items-start day-buttons">
 
-    <button type="button" name="thursday" class="thursday-button"> Thursday </button>
-    <button type="button" name="friday" class="friday-button"> Friday </button>
-    <button type="button" name="saturday" class="saturday-button"> Saturday </button>
-    <button type="button" name="sunday" class="sunday-button"> Sunday </button>
+    <button type="button" formaction="thursdayEvents" name="thursday" class="thursday-button"> Thursday </button>
+    <button type="button" formaction="fridayEvents" name="friday" class="friday-button"> Friday </button>
+    <button type="button" formaction="saturdayEvents" name="saturday" class="saturday-button"> Saturday </button>
+    <button type="button" formaction="sundayEvents" name="sunday" class="sunday-button"> Sunday </button>
 
 </section>
 
 
+<div class="events">
 
-<section class="events">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-
-        <?php
-
-        $events = $db->query($GET_ALL_EVENTS);
-        foreach ($events as $e) {
-
-        ?>
-
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-top">
-                    <img src="../../img/jazzevents/haarlem-jazz-background.png" class="card-img-top" alt="..." height="200px">
+                    <img src="../../img/jazzevents/Rectangle%20503.png" alt="...">
                     <div class="card-img-overlay">
                         <div class="event-day">
                             <p class="date"> day </p>
                             <p class="date"> month </p>
                         </div>
+                        <div class="day-pass-heading">
+                            <p> 1 DAY </p>
+                            <p> ALL- ACCESS PASS </p>
+                        </div>
+                        <div class="day-pass-subtitle">
+                            <p>€ 35.00 </p>
+                        </div>
+
+
                     </div>
+
                 </div>
 
                 <div class="card-body-event">
-                    <h5 class="card-title"><?php echo $e['description'] ?></h5>
-                    <p class="card-text">Artist info</p>
-                    <p class="card-subtitle">Time of event </p>
-                    <p class="card-subtitle"> Location | Price </p>
+                    <h5 class="card-title"> 1 Day Access Pass </h5>
+                    <p class="card-text"> Get access to all events on saturday with this all access pass.  </p>
                     <br/>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">"heart icon" </button>
+                    <button type="submit" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg></button>
                     <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
                 </div>
             </div>
         </div>
 
         <?php
-          }
+
+        foreach ($events as $e){
+
+
+            ?>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-top">
+                    <img src="../../img/jazz/<?php echo $e['artistname']?>.png" class="card-img-top" alt="..." height="200px">
+
+                </div>
+
+                <div class="card-body-event">
+                    <h5 class="card-title"> <?php echo $e['artistname'] ?> </h5>
+                   <p class="event-time">  <?php echo $e['date'] ?> at <?php echo $e['startTime'] ?>  -  <?php echo $e['endTime'] ?> 
+                    <p class="card-text"> <?php echo $e['description'] ?> </p>
+                    <p class="card-subtitle"> <?php echo $e['startTime'] ?> - <?php echo $e['endTime'] ?> </p>
+                    <?php
+                    if($e['activityHall'] != "None"){ ?> <p class="card-subtitle"> <?php echo $e['name'] ?>, <?php echo $e['activityHall'] ?> </p>
+                    <?php } else {   ?> <p class="card-subtitle"> <?php echo $e['name'] ?> </p> <?php } ?>
+                    <p class="card-subtitle"> $ <?php echo $e['price'] ?> </p>
+                    <br/>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg></button>
+                    <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+        <?php }
         ?>
-
-    
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-top">
-                    <img src="../../img/jazzevents/haarlem-jazz-background.png" class="card-img-top" alt="..." height="200px">
-                    <div class="card-img-overlay">
-                        <div class="event-day">
-                            <p class="date"> day </p>
-                            <p class="date"> month </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card-body-event">
-                    <h5 class="card-title">Artist name</h5>
-                    <p class="card-text">Artist info</p>
-                    <p class="card-subtitle">Time of event </p>
-                    <p class="card-subtitle"> Location | Price </p>
-                    <br/>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">"heart icon" </button>
-                    <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-top">
-                    <img src="../../img/jazzevents/haarlem-jazz-background.png" class="card-img-top" alt="..." height="200px">
-                    <div class="card-img-overlay">
-                        <div class="event-day">
-                            <p class="date"> day </p>
-                            <p class="date"> month </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card-body-event">
-                    <h5 class="card-title">Artist name</h5>
-                    <p class="card-text">Artist info</p>
-                    <p class="card-subtitle">Time of event </p>
-                    <p class="card-subtitle"> Location | Price </p>
-                    <br/>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">"heart icon" </button>
-                    <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-top">
-                    <img src="../../img/jazzevents/haarlem-jazz-background.png" class="card-img-top" alt="..." height="200px">
-                    <div class="card-img-overlay">
-                        <div class="event-day">
-                            <p class="date"> day </p>
-                            <p class="date"> month </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card-body-event">
-                    <h5 class="card-title">Artist name</h5>
-                    <p class="card-text">Artist info</p>
-                    <p class="card-subtitle">Time of event </p>
-                    <p class="card-subtitle"> Location | Price </p>
-                    <br/>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">"heart icon" </button>
-                    <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-top">
-                    <img src="../../img/jazzevents/haarlem-jazz-background.png" class="card-img-top" alt="..." height="200px">
-                    <div class="card-img-overlay">
-                        <div class="event-day">
-                            <p class="date"> day </p>
-                            <p class="date"> month </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card-body-event">
-                    <h5 class="card-title">Artist name</h5>
-                    <p class="card-text">Artist info</p>
-                    <p class="card-subtitle">Time of event </p>
-                    <p class="card-subtitle"> Location | Price </p>
-                    <br/>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">"heart icon" </button>
-                    <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-top">
-                    <img src="../../img/jazzevents/haarlem-jazz-background.png" class="card-img-top" alt="..." height="200px">
-                    <div class="card-img-overlay">
-                        <div class="event-day">
-                            <p class="date"> day </p>
-                            <p class="date"> month </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card-body-event">
-                    <h5 class="card-title">Artist name</h5>
-                    <p class="card-text">Artist info</p>
-                    <p class="card-subtitle">Time of event </p>
-                    <p class="card-subtitle"> Location | Price </p>
-                    <br/>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">"heart icon" </button>
-                    <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-top">
-                    <img src="../../img/jazzevents/haarlem-jazz-background.png" class="card-img-top" alt="..." height="200px">
-                    <div class="card-img-overlay">
-                        <div class="event-day">
-                            <p class="date"> day </p>
-                            <p class="date"> month </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card-body-event">
-                    <h5 class="card-title">Artist name</h5>
-                    <p class="card-text">Artist info</p>
-                    <p class="card-subtitle">Time of event </p>
-                    <p class="card-subtitle"> Location | Price </p>
-                    <br/>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-danger btn-sm">"heart icon" </button>
-                    <button type="submit" class="btn btn-outline-success btn-sm">Add to cart</button>
-                </div>
-            </div>
-
-
-        </div>
 
         <!-----------------------Location box ----------------------------->
 
@@ -359,13 +209,11 @@ $GET_ALL_EVENTS = "SELECT * FROM jazzactivity
                     </div>
                 </div>
             </div>
-
-
         </div>
-    </div>
+</div>
 
 
-</section>
+
 
 
 
