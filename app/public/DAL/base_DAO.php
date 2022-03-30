@@ -1,48 +1,25 @@
 <?php
-<<<<<<< HEAD
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once($root . "/DAL/containDB.php");
-require_once ($root . "/Model/time.php");
-require_once ($root . "/Model/date.php");
-require_once ($root . "/DAL/database.php");
-
-abstract class base_DAO extends database{
-    // protected mysqli $conn;
-    // protected mysqli_stmt $stmt;
-    protected  $conn;
-    protected  $stmt;
-    private string $types;
-    private array $localVars;
-
-    public function __construct($conn){
-=======
-
-require_once("containDB.php");
-require_once("../Model/time.php");
-require_once("../Model/date.php");
-require_once("../Exceptions/appException.php");
+require_once("../db.php");
+require_once("model/time.php");
+require_once("model/date.php");
+require_once("Exceptions/appException.php");
 
 abstract class base_DAO {
-    protected mysqli $conn;
-    protected mysqli_stmt $stmt;
+    
+    private DB $db;
     private string $types;
     private array $localVars;
 
-    public function __construct(mysqli $conn){
->>>>>>> Simona
-        $this->conn = $conn;
+    public function __construct(){
+        $this->db = DB::getInstance();
     }
 
     protected function prepareQuery($query){
-        $stmt = $this->conn->prepare($query);
+        $stmt = $this->db->prepare($query);
 
         if(!$stmt){
-<<<<<<< HEAD
-            throw new Exception($this->conn->error);
-=======
-            throw new appException($this->conn->error);
->>>>>>> Simona
+            throw new appException($this->db->error);
         }
 
         $this->stmt = $stmt;
@@ -85,11 +62,7 @@ abstract class base_DAO {
     protected function execAndCloseQuery(){
         $res = $this->execQuery();
         if (!$res)
-<<<<<<< HEAD
-            throw new Exception($this->conn->error);
-=======
-            throw new appException($this->conn->error);
->>>>>>> Simona
+            throw new appException($this->db->error);
 
         $this->closeQuery();
         return $res;
@@ -147,22 +120,14 @@ abstract class base_DAO {
                             $this->localVars[] = $var->toString();
                             break;
                         default:
-<<<<<<< HEAD
-                            throw new Exception("[DB] Unknown class " . gettype($var));
-=======
                             throw new appException("[DB] Unknown class " . gettype($var));
->>>>>>> Simona
                     }
                     break;
                 case "array":
                     $this->getParametersType($var);
                     break;
                 default:
-<<<<<<< HEAD
-                    throw new Exception("[DB] Unknown type " . gettype($var));
-=======
                     throw new appException("[DB] Unknown type " . gettype($var));
->>>>>>> Simona
             }
         }
     }
