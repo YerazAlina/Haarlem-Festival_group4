@@ -13,7 +13,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../../css/historystyle.css?<?php echo time(); ?>">
 
-
 	</head>
 
 <header>
@@ -41,20 +40,17 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a type="button" class="nav-link active" aria-current="page"
-                                    href="home">Home</a>
+                        <a type="button" class="nav-link active" aria-current="page"
+                                    href="home">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Jazz</a>
+                            <a class="nav-link active" aria-current="page" href="#">JAZZ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Food</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Dance</a>
+                            <a class="nav-link active" aria-current="page" href="#">FOOD</a>
                         </li>
 						<li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">History</a>
+                            <a class="nav-link active" aria-current="page" href="historymainpage">HISTORY</a>
                         </li>
 
                     </ul>
@@ -66,57 +62,27 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                 style="color: black; text-decoration: none;">ENG<span class="caret"></span></a>
         </div>
- </nav>
-
-<div class="container">
-<div class="row">
-    <div class="pinkbackgroundleft">
-     <div class="col-md-6">
-     <p id="price"> P R I C E </p>
-       <P id="singlefamily"> Single ticket: €17,50</P>
-       <P id="singlefamily"> Family ticket: €60,00</P>
-       <p id="explanation2">Price of a single ticket or a family ticket is the same for every tour!</p>
-       <p id="explanation3">*Note that a family ticket consists of max 4 people</p>
-     </div>
-
-    </div>
-
-    
-<div class="pinkbackgroundright">
-     <div class="row">
-      <div class="col-md-6">
-      <p id="timelanguage"> TIME     LANGUAGE  </p>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-        <p>10:00      English tour: SOLD OUT     Dutch tour: available    </p> 
-        <button class="btn-buy" type="button" onclick="location.href='historyLanguageQuantity'">BUY >></button>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-10">
-        <p>13:00      English tour: available     Dutch tour: available  Chinese tour: available   </p> 
-        <button class="btn-buy" type="button" onclick="location.href='historyLanguageQuantity'">BUY >></button>
-        </div>
-      </div>
-
-     <div class="row">
-        <div class="col-md-10">
-        <p>16:00      English tour: SOLD OUT     Dutch tour: SOLD OUT  </p> 
-        <button class="btn-buy" type="button" onclick="location.href='historyLanguageQuantity'">BUY >></button>
-        </div>
-      </div>
-
-    </div>
-</div>
-
+    </nav>
   
-<h3 class="redline">__________________________________________________________________________________________________________________________________________________________________</h3>
+    
+<p id="heading"> What day would you like to go on tour? </p> 
+<p id="explanation"> *Tour route and price are identical for each day and each time slot. </p>
+
+<form method="POST">
+<div class="btn-group">
+<button  type="button" name="thursday" value="28/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"> <p id="dates">Thursday 28th of July  >></p></button>
+<button type="button" name="friday" value="Thursday 29/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"> <p id="dates">Friday 29th of July   >></p></button>
+<button  type="button" name="saturday" value="30/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"><p id="dates"> Saturday 30th of July >></p></button>
+<button  type="button" name="sunday" value="31/07" class="btn btn-outline-danger btn-lg btn-block" onclick="location.href='historyPriceTime'"> <p id="dates">Sunday 31st of July   >></p></button>
+</div>
+</form>
+<br>
 
 
+    <h3 class="redline">__________________________________________________________________________________________________________________________________________________________________</h3>
 
-    <br>
+<br><br>
+
 <div class="row recommended-events">
     <h3 class="rec-title"> Complete the day </h3>
     <div class="col mt-md-4">
@@ -224,7 +190,7 @@
     </div>
 </div>
 
-<?php require __DIR__ . '../../footer.php';?>
+<?php require __DIR__ . '../../cms/footer.php';?>
 
 
 </body>

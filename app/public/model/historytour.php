@@ -13,12 +13,11 @@ class historytour extends model {
     private float $famPrice;
     private int $seats;
     private string $guide;
-    private int $tourType;
 
     protected const sqlTableName = "historytour";
-    protected const sqlFields = ["id", "date", "time", "price", "famPrice", "seats", "guide", "tourType"];
+    protected const sqlFields = ["id", "date", "time", "price", "language", "seats", "guide"];
 
-    public function constructor(int $id, DateTime $date, DateTime $time,float $price, float $famPrice, int $seats, string $guide, int $tourType) {
+    public function constructor(int $id, DateTime $date, DateTime $time, float $price, int $language, int $seats, int $guide) {
 
         $this->id = $id;
 
@@ -30,11 +29,8 @@ class historytour extends model {
             $this->time = $time;
         }
 
-        if(!is_null($$price)){
+        if(!is_null($price)){
             $this->price = $price;
-        }
-        if(!is_null($$famPrice)){
-            $this->famPrice = $famPrice;
         }
 
         if(!is_null($seats)){
@@ -43,9 +39,9 @@ class historytour extends model {
         if(!is_null($guide)){
                 $this->guide = $guide;
         }
-        if(!is_null($tourType))){
-            $this->tourType) = $tourType);
-        }
+        if(!is_null($language)){
+            $this->language = $language;
+    }
 
         return $this;
     }
@@ -64,8 +60,8 @@ class historytour extends model {
         if (isset($this->price))
             $array["price"] = $this->price;
 
-        if (isset($this->famPrice))
-            $array["famPrice"] = $this->famPrice;
+        if (isset($this->language))
+            $array["language"] = $this->language;
 
         if (isset($this->seats))
             $array["seats"] = $this->seats;
@@ -73,9 +69,7 @@ class historytour extends model {
         if (isset($this->guide))
             $array["guide"] = $this->guide;
 
-        if (isset($this->tourType))
-            $array["tourType"] = $this->tourType>getId();
-
+        
 
         return $array;
     }
@@ -95,13 +89,12 @@ class historytour extends model {
 
         return (new self())->constructFull(
             $sqlRes[self::sqlTableName . "id"],
-            $date,
-            $time,
+            $sqlRes[self::sqlTableName . "date"],
+            $sqlRes[self::sqlTableName . "time"],
             $sqlRes[self::sqlTableName . "price"],
-            $sqlRes[self::sqlTableName . "famPrice"],
+            $sqlRes[self::sqlTableName . "language"],
             $sqlRes[self::sqlTableName . "seats"],
             $sqlRes[self::sqlTableName . "guide"],
-            $sqlRes[self::sqlTableName . "tourType"]
         );
     }
 
@@ -150,17 +143,6 @@ class historytour extends model {
     }
 
 
-    public function getFamPrice(): float
-    {
-        return $this->famPrice;
-    }
-
-    public function setPrice(float $famPrice): void
-    {
-        $this->famPrice = $famPrice;
-    }
-
-
     public function getSeats(): int
     {
         return $this->seats;
@@ -171,24 +153,21 @@ class historytour extends model {
         $this->seats = $seats;
     }
 
-    public function getGuide(): string {
+    public function getGuide(): int {
         return $this->guide;
     }
 
     public function setGuide(string $guide): void {
         $this->guide = $guide;
     }
-
-    public function getTourType() : int
-    {
-        return $this->tourType;
+    public function getLanguage(): int {
+        return $this->language;
     }
 
-    
-    public function setTourType(int $id): void
-    {
-        $this->tourType = $tourType;
+    public function setLanguage(string $language): void {
+        $this->language = $language;
     }
+
 
     public function getDateAsDate(): date {
         $date = new date();

@@ -18,16 +18,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="home">Home</a>
+                        <a class="nav-link active" aria-current="page" href="home">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Program</a>
+                        <a class="nav-link active" aria-current="page" href="#">JAZZ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Festival info</a>
+                        <a class="nav-link active" aria-current="page" href="#">FOOD</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">FAQ</a>
+                        <a class="nav-link active" aria-current="page" href="historymainpage">HISTORY</a>
                     </li>
 
                 </ul>
@@ -67,7 +67,7 @@
         </section>
 
         <section class="col-3 h-100" style=" margin-top: 50px;">
-            <a href="#" class="col-12" style="">
+            <a href="historymainpage" class="col-12" style="">
                 <img class="eventimg" src="../img/homepage/historyhomepage.jpg" width="300" height="500">
                 <h2 class="bottom-right" style="color:white; transform: translate(-0%, -100%);">History</h2>
 

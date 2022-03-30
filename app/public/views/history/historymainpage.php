@@ -40,20 +40,17 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a type="button" class="nav-link active" aria-current="page"
-                                    href="home">Home</a>
+                        <a type="button" class="nav-link active" aria-current="page"
+                                    href="home">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Jazz</a>
+                            <a class="nav-link active" aria-current="page" href="#">JAZZ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Food</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Dance</a>
+                            <a class="nav-link active" aria-current="page" href="#">FOOD</a>
                         </li>
 						<li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">History</a>
+                            <a class="nav-link active" aria-current="page" href="historymainpage">HISTORY</a>
                         </li>
 
                     </ul>
@@ -322,7 +319,7 @@ Get acquainted with the various Jopen beers in various flavors in the grand caf√
     </div>
 </div>
 
-<?php require __DIR__ . '../../footer.php';?>
+<?php require __DIR__ . '../../cms/footer.php';?>
 
 
 </body>
