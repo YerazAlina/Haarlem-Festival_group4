@@ -42,6 +42,7 @@
             style="color: black; text-decoration: none;">ENG<span class="caret"></span></a>
         </div>
     </nav>
+    
                                <div> <h2>HAARLEM FESTIVAL</h2> </div>
                      
     <section class="row justify-content-center align-self-center text-center">
