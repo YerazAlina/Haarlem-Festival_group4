@@ -24,7 +24,7 @@
                         <a class="nav-link active" aria-current="page" href="home">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">JAZZ</a>
+                        <a class="nav-link active" aria-current="page" href="jazzevents">JAZZ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="food">FOOD</a>
@@ -47,7 +47,7 @@
                      
     <section class="row justify-content-center align-self-center text-center">
         <section class="col-3 h-100" style=" margin-top: 50px;">
-            <a href="#" class="col-12" style="">
+            <a href="jazzevents" class="col-12" style="">
                 <img class="eventimg" src="../img/homepage/jazzhomepage.jpg" width="300" height="500">
                 <h2 class="bottom-right" style="color:white;  transform: translate(-0%, -100%);">Jazz</h2>
 
@@ -63,7 +63,7 @@
         </section>
 
         <section class="col-3 h-100" style=" margin-top: 50px;">
-            <a href="#" class="col-12" style="">
+            <a href="food" class="col-12" style="">
                 <img class="eventimg" src="../img/homepage/foodhomepage.jpg" width="300" height="500">
                 <h2 class="bottom-right" style="color:white; transform: translate(-0%, -100%);">Food</h2>
 
