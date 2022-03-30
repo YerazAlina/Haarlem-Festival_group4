@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once ($root . "activityBase_Service.php");
+require_once ("activityBase_Service.php");
 require_once ($root . "/DAL/foodactivity_DAO.php");
 require_once ($root . "/DAL/containDB.php");
 require_once ($root . "/HTML/table.php");
@@ -13,7 +13,7 @@ class foodactivity_Service extends activityBase_Service {
     private restaurantTypesLink_Service $types;
 
     public function __construct(){
-        $this-> database = new foodactivity_DAO();
+        $this-> db = new foodactivity_DAO();
         $this->types = new restaurantTypesLink_Service();
     }
 
@@ -52,21 +52,21 @@ class foodactivity_Service extends activityBase_Service {
 
     public function getAll(): array
     {
-        return $this->database->getArray([
+        return $this->db->getArray([
             "order" => ["activity.date", "activity.startTime", "activity.endTime"]
         ]);
     }
 
     public function getByRestaurantId(int $restaurantId)
     {
-        return $this->database->getArray([
+        return $this->db->getArray([
             "restaurant.id" => $restaurantId
         ]);
     }
 
     public function getBySessionDate(string $date, array $times, int $restaurantId)
     {
-        return $this->database->get([
+        return $this->db->get([
             "activity.date" => $date,
             "activity.startTime" => "$times[0]",
             "activity.endTime" => "$times[1]",
