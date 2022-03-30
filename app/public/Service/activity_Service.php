@@ -14,7 +14,7 @@ class activity_Service extends base
 
     public function __construct()
     {
-        $this->database = new activity_DAO();
+        $this->db = new activity_DAO();
         $this->food = new foodactivity_Service();
     }
 
@@ -55,14 +55,14 @@ class activity_Service extends base
 
     public function getAll(): array
     {
-        return $this->database->get([
+        return $this->db->get([
             "order" => ["activity.date", "activity.startTime", "activity.endTime"]
         ]);
     }
 
     public function getAllById($ids)
     {
-        $activities = $this->database->get([
+        $activities = $this->db->get([
             "order" => ["activity.date", "activity.startTime", "activity.endTime"],
             "id" => $ids,
             "type" => new containDB(["All-Access", "Dayticket"])
@@ -79,14 +79,14 @@ class activity_Service extends base
 
     public function getById($id)
     {
-        return $this->database->get([
+        return $this->db->get([
             "order" => ["activity.date", "activity.startTime", "activity.endTime"],
             "id" => $id
         ]);
     }
 
     public function getByType($type){
-        return$this->database->get([
+        return$this->db->get([
             "order" => ["activity.date", "activity.startTime", "activity.endTime"],
             "type" => $type
         ]);

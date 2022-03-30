@@ -9,6 +9,6 @@ class location_Service extends base
 {
     public function __construct()
     {
-        $this->database = new location_DAO();
+        $this->db = new location_DAO();
     }
 }

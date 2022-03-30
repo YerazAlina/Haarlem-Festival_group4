@@ -5,7 +5,7 @@ require_once("location.php");
 
 
 
-class artist extends model {
+class jazzartist extends model {
 
     private int $id;
     private string $name;
@@ -13,6 +13,7 @@ class artist extends model {
 
     protected const sqlTableName = "artist";
     protected const sqlFields = ["id", "name", "description"];
+    
 
     public function constructor(int $id, string $name, string $description){
         
@@ -67,6 +68,8 @@ class artist extends model {
     public function setDescription($description)
     {
         $this->description = $description;
+
+        
     }
 
    

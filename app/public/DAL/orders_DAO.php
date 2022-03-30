@@ -1,13 +1,13 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once ($root . "/Model/restaurant.php");
+require_once ($root . "/Model/orders.php");
 require_once("dynamicQuery.php");
 
-class restaurant_DAO extends dynamicQuery {
+class orders_DAO extends dynamicQuery {
 
     public function __construct(){
-        parent::__construct(restaurant::class);
+        parent::__construct(orders::class);
     }
 
     public function get(array $filter = []){
