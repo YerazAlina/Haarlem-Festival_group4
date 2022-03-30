@@ -27,7 +27,7 @@
                         <a class="nav-link active" aria-current="page" href="#">JAZZ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">FOOD</a>
+                        <a class="nav-link active" aria-current="page" href="food">FOOD</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="historymainpage">HISTORY</a>
