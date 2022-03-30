@@ -1,6 +1,6 @@
 <?php
 
-class tourschedule 
+class tourschedule extends model
 {
     private DateTime $date;
     private DateTime $time;

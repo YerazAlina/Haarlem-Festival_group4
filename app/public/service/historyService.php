@@ -3,38 +3,66 @@
 require_once ("historytour.php");
 require_once ("historyDAO.php");
 
-class historytour 
-{
-  private historyDAO $dao;
-
-  protected function rowToHistoricTour(array $row): historytour {
-    $tour = new historytour();
-
-    $tour->setId((int)$row["id"]);
-    $tour->setDate(new DateTime($row["date"]));
-    $tour->setDate(new DateTime($row["time"]));
-    $tour->setVenue((int)$row["price"]);
-    $tour->setVenue((int)$row["famPrice"]);
-    $tour->setLanguage((int)$row["language"]);
-    $tour->setGuide((string)$row["guide"]);
-    $tour->setGuide((string)$row["tourType"]);
-
-    return $tour;
-  }
-
-  protected function rowToTourSchedule(array $row): tourschedule{
-    $schedule = new tourschedule();
-
-    $schedule->setDate(new DateTime($row["date"]));
-    $schedule->setTime(new DateTime($row["time"]));
-    $schedule->setNDutchTours((int)$row["Dutch"]);
-    $schedule->setNEnglishTours((int)$row["English"]);
-    $schedule->setNChineseTours((int)$row["Chinese"]);
-
-    return $schedule;
-  }
 
   //getbyid method
   //getall method
   //getschedule method
+
+
+class historyService extends base {
+    private historyDAO $dao;
+
+    public function __construct(){
+        $this->dao = new historyDAO();
+    }
+
+    public function getById(int $id): ?historytour {
+        try {
+            $stmt = $this->dao->getById($id);
+            $num = $stmt->rowCount();
+            if ($num > 0) {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                return $this->$row;
+            }
+
+            return null;
+        } catch (Exception $e) {
+            $error = new ErrorLog();
+            $error->setMessage($e->getMessage());
+            $error->setStackTrace($e->getTraceAsString());
+
+            ErrorService::getInstance()->create($error);
+
+            return null;
+        }
+    }
+
+    // Get all the history tours from the database
+    public function getAll(): ?array {
+        try {
+            $stmt = $this->dao->getAll();
+            $num = $stmt->rowCount();
+
+            if ($num > 0) {
+                $tours = array();
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    array_push($tours, $row);
+                }
+
+                return $tours;
+            }
+
+            return null;
+        } catch (Exception $e) {
+            $error = new ErrorLog();
+            $error->setMessage($e->getMessage());
+            $error->setStackTrace($e->getTraceAsString());
+
+            ErrorService::getInstance()->create($error);
+
+            return null;
+        }
+    }
 }

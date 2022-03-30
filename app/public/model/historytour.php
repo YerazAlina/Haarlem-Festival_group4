@@ -10,14 +10,15 @@ class historytour extends model {
     private DateTime $date;
     private DateTime $time;
     private float $price;
-    private float $famPrice;
     private int $seats;
-    private string $guide;
+    private int $guide;
+    private int $language;
 
     protected const sqlTableName = "historytour";
     protected const sqlFields = ["id", "date", "time", "price", "language", "seats", "guide"];
+    protected const sqlLinks = ["id"=> historytour::class,"date"=> historytour::class,"time"=> historytour::class,"price"=> historytour::class,"language"=> historytour::class,"seats"=> historytour::class,"guideS"=> historytour::class];
 
-    public function constructor(int $id, DateTime $date, DateTime $time, float $price, int $language, int $seats, int $guide) {
+    public function __construct(int $id, DateTime $date, DateTime $time, float $price, int $language, int $seats, int $guide) {
 
         $this->id = $id;
 
