@@ -1,4 +1,4 @@
-<footer class="text-center text-white" style="background-color: #EFE0E0;">
+<footer class="text-center text-white" style="background-color: #EFE0E0; position: fixed;  left: 0;  bottom: 0; width: 100%;">
     <div class="container pt-4">
         <section class="mb-4" style="color: black;">
             &copy; 2022 Copyright Haarlem Festival

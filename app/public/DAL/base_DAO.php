@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 require_once($root . "/DAL/containDB.php");
@@ -15,6 +16,21 @@ abstract class base_DAO extends database{
     private array $localVars;
 
     public function __construct($conn){
+=======
+
+require_once("containDB.php");
+require_once("../Model/time.php");
+require_once("../Model/date.php");
+require_once("../Exceptions/appException.php");
+
+abstract class base_DAO {
+    protected mysqli $conn;
+    protected mysqli_stmt $stmt;
+    private string $types;
+    private array $localVars;
+
+    public function __construct(mysqli $conn){
+>>>>>>> Simona
         $this->conn = $conn;
     }
 
@@ -22,7 +38,11 @@ abstract class base_DAO extends database{
         $stmt = $this->conn->prepare($query);
 
         if(!$stmt){
+<<<<<<< HEAD
             throw new Exception($this->conn->error);
+=======
+            throw new appException($this->conn->error);
+>>>>>>> Simona
         }
 
         $this->stmt = $stmt;
@@ -65,7 +85,11 @@ abstract class base_DAO extends database{
     protected function execAndCloseQuery(){
         $res = $this->execQuery();
         if (!$res)
+<<<<<<< HEAD
             throw new Exception($this->conn->error);
+=======
+            throw new appException($this->conn->error);
+>>>>>>> Simona
 
         $this->closeQuery();
         return $res;
@@ -123,14 +147,22 @@ abstract class base_DAO extends database{
                             $this->localVars[] = $var->toString();
                             break;
                         default:
+<<<<<<< HEAD
                             throw new Exception("[DB] Unknown class " . gettype($var));
+=======
+                            throw new appException("[DB] Unknown class " . gettype($var));
+>>>>>>> Simona
                     }
                     break;
                 case "array":
                     $this->getParametersType($var);
                     break;
                 default:
+<<<<<<< HEAD
                     throw new Exception("[DB] Unknown type " . gettype($var));
+=======
+                    throw new appException("[DB] Unknown type " . gettype($var));
+>>>>>>> Simona
             }
         }
     }

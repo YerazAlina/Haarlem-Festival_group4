@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 require_once("database.php");
+=======
+require_once("../db.php");
+>>>>>>> Simona
 require_once("containDB.php");
 require_once("base_DAO.php");
 //require __DIR__ . '/../Exceptions/appException.php';
@@ -16,7 +20,11 @@ class dynamicQuery extends base_DAO {
 
     public function __construct($class){
 
+<<<<<<< HEAD
         parent::__construct(database::getInstance()->getConnection());
+=======
+        parent::__construct(DB::getInstance());
+>>>>>>> Simona
 
         $this->insertPrimary = !$class::sqlPrimaryIncrement();
         $this->class = $class;

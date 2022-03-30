@@ -31,6 +31,7 @@ class SwitchRouter
             case 'foodReservation':
                 require __DIR__ . '/views/food/foodReservation.php';
                 break;
+<<<<<<< HEAD
             case 'festivalinfo':
                 require __DIR__ . '/views/festivalInfo.php';
                 break;
@@ -54,6 +55,24 @@ class SwitchRouter
                         $controller->getOneUser($path);
                     }
                 }
+=======
+            case 'home':
+                require __DIR__ . '/views/home.php'; 
+                break;
+            case 'historymainpage':
+                require __DIR__ . '/views/history/historymainpage.php'; 
+                break;
+            case 'historyDateOverview':
+                require __DIR__ . '/views/history/historyDateOverview.php'; 
+                break;
+            case 'historyPriceTime':
+                require __DIR__ . '/views/history/historyPriceTime.php'; 
+                break;
+            case 'historyLanguageQuantity':
+                require __DIR__ . '/views/history/historyLanguageQuantity.php'; 
+                break;
+            
+>>>>>>> Simona
             default:
                 echo '404 not found';
                 http_response_code(404);
