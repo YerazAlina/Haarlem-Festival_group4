@@ -1,10 +1,8 @@
 <?php
 
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-
-require_once ($root . "/Service/base.php");
-require_once($root . "/Exceptions/appException.php");
-require_once($root . "/DAL/location_DAO.php");
+require_once ("base.php");
+require_once("Exceptions/appException.php");
+require_once("DAL/location_DAO.php");
 
 abstract class activityBase_Service extends base {
 
@@ -12,7 +10,7 @@ abstract class activityBase_Service extends base {
         if (empty($ids))
             return [];
 
-        $ret = $this->database->get([
+        $ret = $this->db->get([
             "activity.id" => $ids,
             "order" => ["activity.date", "activity.startTime", "activity.endTime"]
         ]);
@@ -43,6 +41,12 @@ abstract class activityBase_Service extends base {
         }
 
         return $this->getTablesChild($css, $dates);
+    }
+
+    public function deleteTypedActivity(array $activityIds){
+        return $this->db->delete([
+            "activityId" => $activityIds
+        ]);
     }
 
     public abstract function getAll() : array;

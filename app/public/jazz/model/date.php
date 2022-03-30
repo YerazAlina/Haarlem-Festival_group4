@@ -3,7 +3,7 @@
 
 class date
 {
-    private DateTime $date;
+    public DateTime $date;
 
     public function __construct() {
         $this->date = new DateTime();

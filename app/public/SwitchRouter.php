@@ -36,7 +36,9 @@ class SwitchRouter
                 require __DIR__ . '/views/festivalInfo.php';
                 break;
             case 'jazzevents':
-                require __DIR__ . '/views/jazz/jazzevents.php'; 
+                require __DIR__ . '/jazz/controller/jazzController.php';
+                $controller =  new jazzController();
+                $controller->allJazzEvents();
                 break;
               case 'register':
                 require __DIR__ . '/CMS/controller/usercontroller.php';

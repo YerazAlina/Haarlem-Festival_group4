@@ -110,11 +110,18 @@
 
 .card-body-event{
     padding: 15px;
-    height: 200px;
+    height: 270px;
 }
+
+.card{
+    border: none;
+}
+
 
 .card-footer{
     alignment: right;
+    background: white;
+    border: none;
 }
 
 

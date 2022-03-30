@@ -2,7 +2,7 @@
 
 class time {
 
-    private DateTime $time;
+    public DateTime $time;
 
     public function __construct() {
         $this->time = new DateTime();
